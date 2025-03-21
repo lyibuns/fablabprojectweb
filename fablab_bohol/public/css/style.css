@@ -1473,10 +1473,98 @@ margin-left:100px;
 }
 
 
+.innavbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #142944;
+    padding: 5px 10px;
+    z-index: 1000;
+}
+
+.innavbar button {
+    margin-left: -740px;
+    margin-right: 60px;
+    color: #142944; /* Text color matches border */
+    padding:5px 10px;
+    font-size: 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    outline: none;
+    display: inline-block;
+}
+
+.logo {
+    margin-left: 60px;
+    display: flex;
+    align-items: left;
+}
+
+.logo img {
+    height: 60px;
+    width: auto;
+}
+
+.innavbar ul {
+    list-style-type: none;
+    display: flex;
+    background-color: #142944;
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+    gap: 10px;
+    margin-right: 60px;
+    letter-spacing: 1px;
+    font-size: 13px;
+}
+
+/* when the mouse is over the text, then the color becomes active */
+.innavbar ul li a.active {
+    color: rgb(218, 218, 147); /* Yellow text */
+}
+
+.innavbar a {
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    display: block;
+    text-align: right;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.innavbar ul li a:hover {
+    color: rgb(218, 218, 147);
+}
+
+.innavbar ul li a::after {
+    position: absolute;
+    left: 0;
+    bottom: 6px; /* Moves the underline closer to the text */
+    width: 100%;
+    height: 2px;
+    background-color: rgb(218, 218, 147);
+    transform: scaleX(0); /* Initially hidden */
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out;
+}
+
+.innavbar ul li a:hover::after {
+    transform: scaleX(1); /* Expands the underline smoothly */
+}
+
+.innavbar ul li a.active::after {
+    transform: scaleX(1); /* Keep the underline visible */
+}
+
+
  /* Custom button color */
  .btn-custom {
     background-color: #0e263f !important;
-    color: white !important;
     border: none;
 }
 
@@ -1489,3 +1577,66 @@ margin-left:100px;
     margin-bottom:100px;
 }
 
+.sidepanel {
+    width: 0;
+    position: fixed;
+    z-index: 1000;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background-color: white;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top:70px;
+
+    /* ✅ Center items */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* ✅ Puts links at the top */
+    box-shadow:10px;
+    
+}
+
+.sidepanel a {
+    text-decoration: none;
+    font-size: 20px;
+    color: #002f4b;
+    display: block;
+    text-align: center; /* ✅ Centers text */
+    margin-bottom: 20px; /* ✅ Adds space between links */
+    transition: color 0.3s ease-in-out;
+}
+
+.sidepanel a:hover {
+    color: black;
+    background-color:rgb(229, 229, 229);
+    padding:15px 10px;
+}
+
+.sidepanel .closebtn {
+    position: absolute;
+    top: 0;
+    right:10px;
+    font-size: 36px;
+    color: black;
+    border: 1px white;
+}
+
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    color: #111;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 50px; /* Makes it rounded */
+    position: absolute;
+    top: 15px;
+    right: 10px; /* Adjusted to prevent overlap */
+    z-index: 1001;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.openbtn:hover {
+    background-color: #444;
+}

@@ -27,13 +27,12 @@
 
 
  <!--Navigation Bar -->   
- <nav class="navbar">
+ <nav class="innavbar">
     <div class="logo">
         <a href="{{ route('home') }}">
             <img src="../images/fablab-logo.png" alt="Home" width="100">
         </a>
     </div>
-
     <ul class="nav-links">
         <li><a href="{{ route('home') }}" class="active">Home</a></li>
         <li><a href="{{ route('news') }}">Newsletter</a></li>
@@ -43,7 +42,21 @@
         <li><a href="{{ route('location') }}">Location</a></li>
     </ul>
 
-    <button onclick="window.location.href='{{ route('login') }}'"> ☰ </button>
+<!-- Side Panel -->
+<div id="mySidepanel" class="sidepanel">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <a href="{{ route('profilebooking') }}">Bookings</a>
+    <a href="{{ route('profileevents') }}">Events</a>
+    <a href="{{ route('profile') }}">Profile</a>
+</div>
+
+<!-- Burger Button -->
+<button  onclick="openNav()">☰</button>
+
+
+<script src="{{ asset('js/sidepanel.js') }}"></script>
+
+</nav>
 
 </body>
 </html>
