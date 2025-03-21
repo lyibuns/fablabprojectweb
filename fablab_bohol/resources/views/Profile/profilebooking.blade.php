@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FABLAB Bohol - Home</title>
+
+    <!-- ✅ Ensure base URL is set -->
+    <base href="{{ url('/') }}">
+
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/icon.png') }}">
+    <link rel="stylesheet" href="../css/style.css">
+    <meta name="description" content="FABLAB Bohol">
+    <meta name="keywords" content="FABLAB, Fabrication, Laboratory, Bohol, Bohol Island State University">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <!--<meta http-equiv="refresh" content="5"> -->
+    <script src="{{ asset('js/hero-slideshow.js') }}" defer></script>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+
+    <!-- ✅ Ensure Firebase Initialization and Authentication Scripts Load After Firebase SDK -->
+    <script defer src="{{ asset('js/firebase-essentials/firebase-init.js') }}"></script>
+    <script defer src="{{ asset('js/firebase-essentials/firebase-auth.js') }}"></script>
+</head>
+
+<body>
+
+ <!--Navigation Bar -->   
+    <nav class="navbar">
+
+       
+    <div class="logo"><a href= "{{ route('home') }}"><img src="../images/fablab-logo.png" alt="Home" width="100" height=""></a></div>
+        
+        <ul>
+            <li><a href="{{ route('home') }}" class="active">Home</a></li>
+            <li><a href="{{ route('news') }}">Newsletter</a></li>
+            <li><a href="{{ route('events') }}">Events</a></li>
+            <li><a href="{{ route('facilities') }}">Facilities</a></li>
+            <li><a href="{{ route('aboutus') }}">About Us</a></li>
+            <li><a href="{{ route('location') }}">Location</a></li>
+        </ul>
+        <button onclick="window.location.href='{{ route('login') }}'"> Log In </button>
+    </nav>
+
+
+
+</body>
+</html>

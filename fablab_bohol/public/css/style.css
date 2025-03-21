@@ -1,0 +1,1491 @@
+
+body{
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main{
+    margin-left:100px;
+    margin-right:100px;
+    margin-top:150px;
+    padding-bottom: 100;
+}
+
+.hero-slideshow-container {
+    position: relative;
+    margin: auto;
+    max-height:300px;
+    margin-top: 100px; /* ✅ Fixes white space issue */
+}
+
+.hero-slide {
+    display: none;
+    position: relative;
+}
+
+.hero-slide:first-child {
+    display: block;  /* ✅ Ensures the first slide is visible */
+}
+
+.hero-slide img {
+    width: 100%;  /* ✅ Full width of the container */
+    max-height: 800px;  /* ✅ Prevents image from being too tall */
+    object-fit: cover;  /* ✅ Ensures the image scales properly */
+}
+
+/* Caption */
+.hero-caption {
+    position: absolute;
+    top:150px;
+    left: 150px;
+    right: 20px;
+    max-width: 40%;
+    color: white;
+    text-align: left;
+}
+
+/* Caption Title */
+.hero-caption h1 {
+    font-size: 100px;
+    color:#ffffff;
+    font-weight:bold;
+}
+
+/* Caption Paragraph */
+.hero-caption p {
+    margin-top:-50px;
+    font-size: 25px;
+    font-size:lighter;
+
+}
+
+/* Caption Button */
+.hero-caption button {
+    background-color: transparent;
+    padding: 20px 20px;
+    border: 1px solid #142944; /* Dark blue border */
+    
+    border-radius: 25px;
+    color: #142944; /* Text color matches border */
+    background-color:white;
+    font-size: 15px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    outline: none;
+    display: inline-block;
+}
+
+.hero-caption button:hover {
+    background-color: #142944;
+    color:white;
+}
+.hero-captionblue {
+    position: absolute;
+    top:150px;
+    left: 150px;
+    right: 20px;
+    max-width: 40%;
+    color: #064e7b;
+    text-align: left;
+}
+
+
+/* Caption Title */
+.hero-captionblue h1 {
+    font-size: 100px;
+    color:#064e7b;
+    font-weight:bold;
+}
+
+/* Caption Paragraph */
+.hero-captionblue p {
+    margin-top:-50px;
+    font-size: 25px;
+    font-size:lighter;
+
+}
+
+/* Caption Button */
+.hero-captionblue button {
+    background-color: transparent;
+    padding: 20px 20px;
+    border: 1px solid #142944; /* Dark blue border */
+    
+    border-radius: 25px;
+    color: #142944; /* Text color matches border */
+    background-color:white;
+    font-size: 15px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    outline: none;
+    display: inline-block;
+}
+
+.hero-captionblue button:hover {
+    background-color: #142944;
+    color:white;
+}
+
+/* ✅ KEEP THE NAVIGATION DOTS AT THE BOTTOM OF THE SLIDESHOW */
+.hero-nav {
+    position: absolute; /* ✅ ENSURES DOTS STAY INSIDE SLIDESHOW */
+    top: 750px; /* ✅ POSITION DOTS CLOSER TO THE SLIDESHOW */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10; /* ✅ ENSURES DOTS ARE ABOVE THE SLIDESHOW */
+    display: flex;
+    gap: 10px; /* ✅ ADDS SPACE BETWEEN DOTS */
+}
+
+/* ✅ FIX DOT SIZE AND VISIBILITY */
+.hero-nav-btn {
+    display: inline-block;
+    cursor: pointer;
+    width: 12px; /* ✅ SMALLER DOTS */
+    height: 12px;
+    background: rgba(255, 255, 255, 0.6); /* ✅ MAKES DOTS MORE VISIBLE */
+    border-radius: 50%;
+    transition: background 0.3s ease-in-out;
+}
+
+/* ✅ HIGHLIGHT ACTIVE DOT */
+.hero-nav-btn.active {
+    background: white; /* ✅ MAKES ACTIVE DOT FULLY VISIBLE */
+}
+
+
+/*THIS IS THE HERO SECTION OF THE PAGE */
+/*
+.hero-section{
+    margin-top:250px;
+    margin-left:100px;
+    margin-right:100px;
+    padding-bottom: 100;
+   
+}
+.hero-section h1{
+    font-size: 100px;
+    color:#064e7b;
+    margin-top:150px;
+    margin-bottom: 70px;
+    margin-left:100px;
+}
+
+
+.hero-section h3{
+    font-size:30px;
+    font-weight: 50;
+    color: #142944;
+    margin-top: -30px;
+    margin-left: 120px;
+}
+
+.hero-section img{
+    z-index: -100;
+    position:relative;
+    width: 500px;
+    height: auto;
+    right: 60px;
+    margin-right:50px;
+    float:right;
+    margin-top:-275px;
+    margin-bottom:100px;
+    justify-content: space-around;
+}
+
+.hero-section button{
+    background-color: transparent;
+    padding: 20px 20px;
+    border: 1px solid #142944; /* Dark blue border */
+    /*
+    border-radius: 25px;
+    color: #142944; /* Text color matches border */
+    /*
+    font-size: 15px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    outline: none;
+    display: inline-block;
+    margin-left:115px;
+    margin-bottom:200px;
+}
+
+.hero-section button a:hover{
+    color: rgb(218, 218, 147);
+
+
+}
+
+
+/*THIS IS THE NAVIGATION BAR OF THE PAGE */
+
+.navbar {
+    position:fixed;
+    top:0;
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #142944;
+    padding: 5px 10px;
+    z-index:1000;
+}
+
+.navbar button{
+    margin-left:-750px;
+    margin-right:60px;
+    background-color: white;
+    padding: 10px 20px;
+    border: 1px solid #142944; /* Dark blue border */
+    border-radius: 25px;
+    color: #142944; /* Text color matches border */
+    font-size: 12px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    outline: none;
+    display: inline-block;
+}
+
+.logo {
+    margin-left: 60px;
+    display:flex;
+    align-items: left;
+
+}
+
+.logo img{
+    height: 60px;
+    width: auto;
+}
+
+
+.navbar ul{
+    list-style-type: none;
+    display: flex;
+    background-color: #142944;
+    padding:0px;
+    margin:0px;
+    overflow: hidden;
+    gap: 10px;
+    margin-right: 60px;
+    letter-spacing: 1px;
+    font-size: 13px;
+
+}
+
+/* when the mouse is over the text, then the color becomes active*/
+.navbar ul li a.active {
+    color: rgb(218, 218, 147); /* Yellow text */
+}
+
+.navbar a{
+    color: white;
+    text-decoration:none;
+    padding:15px;
+    display:block;
+    text-align: right;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+
+.navbar ul li a:hover{
+    color: rgb(218, 218, 147);
+
+}
+
+.navbar ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 6px; /* Moves the underline closer to the text */
+    width: 100%;
+    height: 2px;
+    background-color: rgb(218, 218, 147);
+    transform: scaleX(0); /* Initially hidden */
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out;
+}
+
+.navbar ul li a:hover::after {
+    transform: scaleX(1); /* Expands the underline smoothly */
+}
+
+.navbar ul li a.active::after {
+    transform: scaleX(1); /* Keep the underline visible */
+}
+
+.welcome {
+    margin-top:-5px;
+    clear:both;
+    text-align:center;
+    background-color: #142944;
+    color: white;
+    background-size: 100%;
+
+}
+
+.welcome h2{
+    font-size:30px;
+    margin:0;
+    margin-bottom:20px;
+    padding-top:50px;
+}
+
+.welcome p{
+    margin-top:0;
+    margin-bottom:30px;
+    letter-spacing: 1px;
+    font-size: 15px;
+    line-height:25px;
+    font-weight:100px;
+}
+
+.welcome button{
+    background-color:white;
+    padding: 8px 8px;
+    border:none;
+    border-radius: 15px;
+    color: #142944;
+    margin-bottom:50px;
+    font-size:13px;
+    cursor: pointer;
+}
+
+.newsletterhome{
+    display:flex;
+    margin-top:50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+    padding: 20px;
+}
+
+/* Left section for January 2025 updates */
+.left-section {
+    max-width: 600px;
+    margin-left:250px;
+}
+
+
+.newsletterhome h1{
+    color:#064e7b;
+    margin-bottom:50px;
+    font-size:30px;
+}
+
+.left-section button{
+    background-color: transparent;
+    padding: 10px 20px;
+    border: 1px solid #142944; /* Dark blue border */
+    border-radius: 25px;
+    color: #142944; /* Text color matches border */
+    font-size: 13px;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: inline-block;
+    margin-top:20px;
+    margin-left:40%;
+}
+
+.left-section button:hover {
+    background-color: #1E3A56;
+    color: white;
+    margin-bottom:500px;
+}
+
+
+/* Right section for previous months */
+.right-section {
+margin-left:100px;
+}
+
+
+.newsletter-card1 {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    margin-bottom: 30px;
+    margin-top:150px;
+    width:100%
+
+}
+
+.newsletter-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+.thumbnail {
+    width: 150px;
+    height: 150px;
+    background-color: #1E3A56;
+    aspect-ratio:1/1;
+    margin-right:30px;
+}
+
+.text-content {
+    flex:2;
+    max-width:350px;
+}
+
+.text-content h2 {
+    margin-bottom:15px;
+    font-size: 20px;
+    color: #1E3A56;
+    font-weight:700;
+    white-space:nowrap;
+}
+
+.text-content p {
+    font-size: 14px;
+    margin-top:-10px;
+    margin-bottom: 10px;
+    white-space: normal;
+
+}
+
+.read-more {
+    padding: 5px 15px;
+    background: none;
+    border: 1px solid #1E3A56;
+    color: #1E3A56;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.read-more:hover {
+    background-color: #1E3A56;
+    color: white;
+}
+
+/*events*/
+
+.eventshome{
+    align-items: flex;
+
+}
+
+.eventshome h1{
+    text-align:center;
+    color:#064e7b;
+    margin-bottom:50px;
+    font-size:30px;
+    margin-top:100px;
+}
+
+.events-container {
+    display: flex; /* ✅ Aligns .event1 and .event2 side by side */
+    justify-content: center; /* ✅ Centers them on the page */
+    gap: 20px; /* ✅ Controls spacing between the events */
+}
+
+.event1, .event2, .event3{
+    flex-direction:column;
+    margin-top:50px;
+    margin-right:30px;
+    display: flex;
+    padding: 10px;
+    width:300px;
+    height:400px;
+    border-radius:10px;
+    border-width:1px;
+    border-style:solid;
+    border-color:#064e7b;
+    justify-content:center;
+    align-items: center;
+
+}
+
+.event1 h3, .event2 h3, .event3 h3{
+    color: #064e7b;
+}
+
+.eventshome img{
+    justify-content:center;
+    width:230px;
+    height:auto;
+}
+
+.eventshome hr{
+    width: 80%; 
+    border: 2px solid #064e7b;
+    border-radius:5px;
+    margin: 10px 0;
+}
+
+.eventshome button{
+    padding: 5px 15px;
+    background: none;
+    border: 1px solid #1E3A56;
+    color: #1E3A56;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.eventshome button:hover {
+    background-color: #1E3A56;
+    color: white;
+}
+
+/* FACILITIES HOME */
+.facilitieshome {
+    margin-top:150px;
+}
+
+.facilitieshome h1 {
+    text-align: center;
+    color: #064e7b;
+    margin-top: 100px;
+    font-size: 30px;
+    margin-bottom: -50px;
+}
+
+.facilitieshome hr {
+    width: 30%; 
+    border: 2px solid #064e7b;
+    border-radius: 5px;
+    margin: 100px auto 0 auto; /* Reducing top margin */
+    display: block; /* Ensures horizontal centering */
+}
+
+
+.machines-container {
+    margin:auto;
+    display: grid; /* ✅ Aligns .event1 and .event2 side by side */
+    justify-content: center; /* ✅ Centers them on the page */
+    gap: 40px; /* ✅ Controls spacing between the events */
+    margin-top: 50px;
+    padding: 20px 20px 20px 20px;
+    max-width: 80%; /* ✅ Restrict width for proper centering */
+    grid-template-columns: repeat(4, 1fr);
+    margin-left: 250px;
+    margin-right:280px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+
+    
+}
+
+.machinebox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    width: 200px;
+    height: 250px;
+    border-radius: 20px;
+    border: 1px solid #064e7b;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.machinebox img {
+    max-width: 100%;
+    max-height: 200px; /* Reduced height to bring text closer */
+    object-fit: contain;
+    display: block;
+    margin-bottom: 5px; /* Less space between image and text */
+    z-index: -1000;
+}
+
+.machinebox h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #064e7b;
+    text-align: center;
+    margin-top: -30px; /* Removes extra spacing */
+}
+
+.machinebox:hover {
+    transform: scale(1.05);
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.jmakershome{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.jmakerspic{
+    margin-top:100px;
+    width:400px;
+    height:auto;
+    z-index:-500;
+    margin-bottom:20px;
+
+}
+
+.jmakershome h3{
+    margin-top:-50px;
+    font-weight:lighter;
+    line-height: 150%;
+    font-size:20px;
+}
+
+.jmakershome button{
+    padding: 5px 15px;
+    background: none;
+    border: 1px solid #1E3A56;
+    color: #1E3A56;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.jmakershome button:hover {
+    background-color: #1E3A56;
+    color: white;
+}
+
+.locationhome{
+    margin-top:100px;
+    display:flex;
+    justify-content:center;
+    position:relative;
+    align-items: center;
+    margin-bottom:500px;
+    background:none !important;
+}
+
+.locationhome img{
+    max-width:950px;
+    z-index:-1000;
+    position:relative;
+    filter: brightness(55%);
+}
+
+.locationhome h1{
+    position: absolute; /* Moves text on top of the image */
+    color: white; /* Change color to contrast with the image */
+    top:30%;
+    font-size: 40px;
+    font-weight: bold;
+    text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.7); /* Bigger, darker shadow */
+    z-index: 10; /* Ensures it's in front of the image */
+
+    /* BOX STYLING */
+    padding: 20px 40px; /* Adds space inside the box */
+    border: 10px solid white; /* Creates the box effect */
+    background:none !important;
+}
+
+.locgoogle {
+    position: absolute;
+    bottom: -80px; /* Moves the map slightly lower */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%; /* Increased width */
+    max-width: 900px; /* Wider but constrained */
+    height: 250px; /* Increased height */
+    z-index: 1;
+    
+
+}
+
+.locgoogle iframe {
+    width: 100%;
+    max-width: 900px;
+    height: 250px; /* Adjust height as needed */
+    border-radius: 10px;
+    background:none !important;
+}
+
+.locationhome button {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -20px; /* Adjust this value to move it slightly below */
+    background-color: #0a2540;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 100px;
+    font-size: 20px;
+    cursor: pointer;
+    letter-spacing: 1px;
+
+}
+
+
+
+.bottom-bar {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 10px 20px;
+    background-color: #EFF0F1;;
+    max-width:1800px;
+}
+
+.botlogos {
+    display: flex;
+    gap: 15px; /* Reduce space between logos */
+    align-items: center;
+}
+
+.bottom-bar-img{
+    width: auto;
+    height: 80px;
+    margin-left:50px;
+}
+
+
+.botlearnmore, .botorg, .botconnect {
+    min-height: 100px; /* Ensures they align with the logos */
+    display: flex;
+    flex-direction: column;
+}
+
+.botlearnmore a, .botorg a, .botconnect a{
+    text-decoration: none !important;
+    color: #021F31;
+}
+.botlearnmore h5, .botorg h5, .botconnect h5{
+   margin-bottom:5px;
+   color: #021F31;
+}
+.botlearnmore ul, .botorg ul{
+    list-style: none;
+
+
+}
+.botconnect ul{
+    list-style: none;
+
+
+}
+
+.botlearnmore li, .botorg li{
+    margin-left:-40px;
+    font-size:15px;
+    margin-bottom:10px;
+
+}
+
+.botconnect li{
+    display: flex; /* Aligns icon and text horizontally */
+    align-items: center; /* Centers icon with text */
+    font-size: 15px;
+    margin-bottom: 20px;
+    color: #021F31;
+
+}
+
+.botconnect img{
+    width:20px;
+    margin-left:-40px;
+    margin-right:20px;
+}
+
+.vertlogo img{
+    width:20px;
+    height:20px;
+    margin-right:50px;
+}
+
+/* NEWSLETTER MAIN*/
+
+
+.newsbutton{
+    display: flex;
+    gap: 5px;  /* ✅ Space between buttons */
+    justify-content: left; /* ✅ Center the buttons */
+    margin-top: 20px; /* ✅ Adjust spacing from top */
+}
+
+.newsbtns{
+    background-color: white; /* ✅ Dark Blue */
+    color: #021F31;
+    font-size: 16px;
+    font-weight: 100;
+    padding: 10px 30px;
+    border: solid 1px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.newsbtns:hover{
+    background-color: #064e7b; /* ✅ Darker shade on hover */
+    color:white;
+}
+
+.newsbtns.active {
+    background-color: #064e7b;
+    color: white;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); /* Slight glow effect */
+}
+
+.search-filternews {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+
+}
+
+.search-containernews {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-containernews input {
+    width: 160px; /* Adjust width */
+    padding: 10px 40px 10px 10px; /* Adds space for the icon */
+    font-size: 15px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.search-containernews .search-iconnews {
+    position: absolute;
+    right: 10px; /* Positions the icon inside */
+    top: 50%;
+    transform: translateY(-50%);
+    fill: #888; /* Adjust color */
+    pointer-events: none; /* Prevents clicking */
+}
+
+.newsletter h1{
+    margin-top:150px;
+}
+
+.newsletter a{
+    text-decoration: none;
+    color:#003366;
+    font-weight:bold;
+}
+
+.newsletter ul{
+    margin-top:none;
+    list-style-type: circle;
+    color:#003366;
+    background-color:rgb(244, 244, 244);
+    width:740px;
+    padding:50px;
+    
+}
+
+.newsletter li{
+    font-size:17px;
+    margin-bottom:10px;
+}
+
+.newsbutton input{
+    padding: 10px;
+}
+
+
+/*EVENTS MAIN*/
+.eventsmain-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+}
+
+.eventsmain-content {
+    flex: 1;
+}
+
+.event-image {
+    width: 600px !important; /* Make the image big */
+    max-width: 100%; /* Ensure responsiveness */
+    height: auto;
+}
+
+.eventsmain-container h1{
+    font-size:70px;
+    letter-spacing:1.5px;
+    color:#003366;
+    font-weight: bolder;
+}
+
+.eventsmain-container h2{
+    margin-top:100px;
+    font-size:40px;
+    font-weight:lighter;
+    letter-spacing: 1px;
+}
+
+.eventsmain-container img{
+    width:500px;
+    height:auto;
+    
+}
+
+.events-header {
+    display: flex;
+    justify-content: space-between; /* Push elements to opposite sides */
+    align-items: center; /* Align vertically */
+    width: 100%;
+    padding: 10px 20px; /* Adjust spacing */
+}
+
+.events-header h3{
+    margin-left: 20px;
+    font-size:40px;
+    font-weight:300;
+}
+
+.search-filter {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 45px;
+}
+
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-container input {
+    width: 250px; /* Adjust width */
+    padding: 10px 35px 10px 10px; /* Adds space for the icon */
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.search-container .search-icon {
+    position: absolute;
+    right: 10px; /* Positions the icon inside */
+    top: 50%;
+    transform: translateY(-50%);
+    fill: #888; /* Adjust color */
+    pointer-events: none; /* Prevents clicking */
+}
+
+
+.eventsmain {
+    margin-top:50px;
+    align-items: center;
+    text-align: center;
+}
+
+.eventsmain-content h1 {
+    color: #002f6c;
+    margin-bottom: 20px;
+    margin-top: 50px;
+    font-size: 80px;
+    letter-spacing: 0px;
+    font-weight: bolder;
+}
+
+.events-header h3 {
+    text-align: center;
+    color: #333;
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+/* ✅ Fix: Align Events Side by Side */
+.eventsmain-row {
+    display: flex; /* ✅ Makes sure events align in a row */
+    justify-content: center; /* ✅ Centers the row */
+    gap: 30px; /* ✅ Space between events */
+    margin-top: 20px;
+    flex-wrap: wrap; /* ✅ Ensures responsiveness */
+}
+
+.event-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    height: auto;
+    padding: 40px;
+    border-radius: 10px;
+    border: 2px solid #064e7b;
+    background: white;
+    text-align: center;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+
+}
+
+.event-box h3 {
+    color: #064e7b;
+    margin-bottom:-10px;
+}
+
+.eventsmain img {
+    width: 230px;
+    height: auto;
+    border-radius: 5px;
+}
+
+.eventsmain hr {
+    width: 100%;
+    margin-top:30px;
+    border: 2px solid #064e7b;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.eventsmain button {
+    padding: 8px 15px;
+    background: none;
+    border: 1px solid #1E3A56;
+    color: #1E3A56;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+.eventsmain button:hover {
+    background-color: #1E3A56;
+    color: white;
+}
+
+.eventsbottom-container {
+    display: flex;
+    align-items: center; /* Aligns items vertically */
+    justify-content: space-between; /* Keeps space between image and text */
+    max-width: 1200px; /* Limits width */
+    margin: auto; /* Centers section */
+    padding: 50px 20px;
+    gap: 30px; /* Space between image and text */
+}
+
+.eventsbottom-image img {
+    width: 600px; /* Makes image take half the section */
+    margin-left: -100px;
+    height: auto;
+}
+
+.eventsbottom-text {
+    flex: 1; /* Makes text fill available space */
+    text-align: left;
+    max-width: 600px;
+}
+
+.eventsbottom-text-svg {
+    font-weight: bold;
+    color: #002f6c;
+}
+
+.eventsbottom-quote-svg {
+    font-size: 20px;
+    font-style: italic;
+    color: #666;
+}
+
+/*FACILITIES MAIN*/
+
+.facilities-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Ensures 4 machines per row */
+    gap: 30px; /* Space between items */
+    justify-content: center;
+    align-items: stretch; /* Makes all boxes stretch to equal height */
+    padding: 20px;
+}
+
+.facility {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    height: 320px; /* Adjusted for proper spacing */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; /* Ensures child elements are positioned relative to this box */
+    overflow: hidden; /* Prevents content from overflowing */
+}
+
+/* Ensures all images are the same size */
+.facility img {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Keeps text size and layout consistent */
+.facility h3 {
+    font-size: 1.2rem;
+    color: #064e7b;
+    margin: 10px 0;
+}
+
+.facility p {
+    font-size: 0.9rem;
+    color: #555;
+    flex-grow: 1; /* Helps distribute space */
+}
+
+
+/* Book Now Button - Initially Hidden */
+.book-now {
+    position: absolute;
+    bottom: 5%; /* Places button inside the box */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #064e7b;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+
+/* Show Button on Hover */
+.facility:hover .book-now {
+    opacity: 1; /* Fully visible */
+    filter:blur(50%);
+}
+
+/* Keep Button Light Even When Box is Darker */
+.facility:hover .book-now {
+    background-color: #064e7b; /* Ensures button stays original color */
+}
+
+/* Button Hover Effect */
+.book-now:hover {
+    background-color: #002f4b;
+}
+
+
+
+
+
+/* Responsive: Adjust grid for smaller screens */
+@media (max-width: 1024px) {
+    .facilities-list {
+        grid-template-columns: repeat(3, 1fr); /* 3 per row on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .facilities-list {
+        grid-template-columns: repeat(2, 1fr); /* 2 per row on tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .facilities-list {
+        grid-template-columns: repeat(1, 1fr); /* 1 per row on small screens */
+    }
+}
+
+/* Modal Styling */
+.facilities-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Modal Content */
+.facilities-modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    position: relative;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Close Button */
+.close-facilities-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Form Styling */
+.facilities-modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.facilities-modal-content input,
+.facilities-modal-content select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.facilities-modal-content button {
+    background-color: #064e7b;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.facilities-modal-content button:hover {
+    background-color: #002f4b;
+}
+
+
+
+
+/*.abouthero h1{
+
+}
+
+.aboutusstaff{
+
+}
+
+
+.director{
+    
+}
+
+*/
+
+.director {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Stack items vertically */
+    text-align: center;
+}
+
+.director img {
+    width: 200px; /* Ensure width and height are equal */
+    height: 200px;
+    object-fit: cover; /* Ensures the image fills the circle without distortion */
+    border-radius: 50%; /* Makes it a perfect circle */
+    display: block;
+    margin: 0 auto;
+}
+
+.director h4{
+    margin-bottom: -10px;
+}
+
+.director p{
+    margin-bottom:50px;
+}
+.staff-container{
+    display: flex;
+    justify-content: center; /* Centers the row */
+    align-items: center;
+    gap: 30px; /* Adds spacing between members */
+}
+
+.staff{
+    text-align: center;
+    width: 250px; /* Set a fixed width for consistency */
+}
+
+.staff img{
+    width: 200px; /* Ensure width and height are equal */
+    height: 200px;
+    object-fit: cover; /* Ensures the image fills the circle without distortion */
+    border-radius: 50%; /* Makes it a perfect circle */
+    display: block;
+    margin: 0 auto;
+}
+
+.staff h4{
+    margin-bottom: -10px;
+}
+
+.staff p{
+    margin-bottom:50px;
+}
+
+/* LOCATION MAIN*/
+
+.map-container iframe{
+
+    width:1000px;
+    height:500px;
+}
+
+/*LOG IN MAIN*/
+
+/* CONTAINER */
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* ✅ Moves form higher */
+    height: 90vh; /* ✅ Slightly reduces height */
+    padding-top: 100px; /* ✅ Adds spacing from the top */
+}
+
+/* LOGIN FORM CONTAINER */
+.login-container {
+    background: white;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* LOGO */
+.login-logo img {
+    width: 60px;
+    margin-bottom: 1rem;
+}
+
+/* FORM */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* LABELS */
+.login-form label {
+    text-align: left;
+    font-weight: bold;
+    color: #333;
+}
+
+/* INPUT FIELDS */
+.login-form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 100%;
+}
+
+/* FORGOT PASSWORD */
+.forgot-password {
+    text-align: right;
+    font-size: 0.9rem;
+    color: #2563eb;
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+/* LOGIN BUTTON */
+.login-button {
+    background-color: #0a2540;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.login-button:hover {
+    background-color: #003366;
+}
+
+/* OR SEPARATOR */
+.separator {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.separator .line {
+    flex: 1;
+    height: 1px;
+    background: #ccc;
+}
+
+.separator span {
+    padding: 0 10px;
+    color: #666;
+}
+
+/* GOOGLE LOGIN BUTTON */
+.google-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-decoration: none;
+    color:#4e4e4e;
+}
+
+.google-login img {
+    width: 20px;
+    height: 20px;
+}
+
+.google-login:hover {
+    background: #f3f3f3;
+}
+
+/* SIGNUP TEXT */
+.signup-text {
+    margin-top:30px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.signup-text a {
+    color: #4e4e4e;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+
+ /* Custom button color */
+ .btn-custom {
+    background-color: #0e263f !important;
+    color: white !important;
+    border: none;
+}
+
+.btn-custom:hover {
+    background-color: #3070af !important; /* Slightly darker on hover */
+}
+
+.container{
+    margin-top:100px;
+    margin-bottom:100px;
+}
+
