@@ -2,46 +2,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>FABLAB Bohol - Home</title>
+@include('NavBars.head')
 
-    <!-- ✅ Ensure base URL is set -->
-    <base href="{{ url('/') }}">
-
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/icon.png') }}">
-    <link rel="stylesheet" href="../css/style.css">
-    <meta name="description" content="FABLAB Bohol">
-    <meta name="keywords" content="FABLAB, Fabrication, Laboratory, Bohol, Bohol Island State University">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <!--<meta http-equiv="refresh" content="5"> -->
-    <script src="{{ asset('js/hero-slideshow.js') }}" defer></script>
-
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
-
-    <!-- ✅ Ensure Firebase Initialization and Authentication Scripts Load After Firebase SDK -->
-    <script defer src="{{ asset('js/firebase-essentials/firebase-init.js') }}"></script>
-    <script defer src="{{ asset('js/firebase-essentials/firebase-auth.js') }}"></script>
 </head>
 
 <body>
-
+@yield('content')
  <!--Navigation Bar -->   
-    <nav class="navbar">
-
-       
-    <div class="logo"><a href= "{{ route('home') }}"><img src="../images/fablab-logo.png" alt="Home" width="100" height=""></a></div>
-        
-        <ul>
-            <li><a href="{{ route('home') }}" class="active">Home</a></li>
-            <li><a href="{{ route('news') }}">Newsletter</a></li>
-            <li><a href="{{ route('events') }}">Events</a></li>
-            <li><a href="{{ route('facilities') }}">Facilities</a></li>
-            <li><a href="{{ route('aboutus') }}">About Us</a></li>
-            <li><a href="{{ route('location') }}">Location</a></li>
-        </ul>
-        <button onclick="window.location.href='{{ route('login') }}'"> Log In </button>
-    </nav>
+ @include('NavBars.navbar')
 
     
     
@@ -280,7 +248,28 @@
             </div>
             </ul>
             </div>
+
+            <div id="mySidepanel" class="sidepanel">
+                    <button href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</button>
+                    <a href="{{ route('profilebooking') }}">
+                        <img src="../images/logobooking.png" class="side-icon" alt= "Bookings">Bookings</a>
+                    <a href="{{ route('profileevents') }}">
+                        <img src="../images/logoevent.png" class="side-icon" alt= "Events">Events</a>
+                    <a href="{{ route('profile') }}">
+                        <img src="../images/logoprofile.png" class="side-icon" alt= "Profile">My Profile</a>
+                    <a href="javascript:void(0)" onclick="logoutUser()">
+                            <img src="../images/logologout.png" class="side-icon" alt="Logout">Logout
+                    </a>
+            </div>
+
+        <!-- ✅ Burger Button -->
+  
+
         </nav>
+    
+    
+    <!-- ✅ Full-Screen Dark Overlay -->
+    <div id="overlay" class="overlay" onclick="closeNav()"></div>
 
 </body>
 </html>

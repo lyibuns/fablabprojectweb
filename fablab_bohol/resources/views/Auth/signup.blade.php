@@ -19,11 +19,12 @@
     <meta name="keywords" content="FABLAB, Sign Up, Bohol, BISU, Digital Fabrication">
 
     <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
 
-    <script type="module" src="{{ asset('js/firebase-essentials/createaccount.js') }}"></script>
+    <script src="{{ asset('js/firebase-essentials/firebase-init.js') }}"></script>
+    <script type="module" src="{{ asset('js/firebase-essentials/firebase-createaccount.js') }}"></script>
 </head>
 <body class="bg-light d-flex justify-content-center align-items-center vh-100">
     
@@ -47,7 +48,8 @@
                 <div class="card shadow p-4">
                     <h2 class="text-center mb-3">Create an Account</h2>
 
-                    <form method="POST" action="{{ route('signup') }}">
+                    <form id="signup-form" method="POST">
+
                         @csrf
 
                         <!-- Full Name -->
@@ -58,8 +60,8 @@
 
                         <!-- Gender -->
                         <div class="mb-3">
-                            <label for="gender" class="form-label">Disaggregation</label>
-                            <select id="gender" name="gender" class="form-select" required>
+                            <label for="disaggregation" class="form-label">Disaggregation</label>
+                            <select id="disaggregation" name="disaggregation" class="form-select" required>
                                 <option value="" disabled selected>Select an option</option>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
@@ -71,14 +73,13 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="gender" class="form-label">User Category</label>
-                            <select id="gender" name="gender" class="form-select" required>
+                            <label for="category" class="form-label">User Category</label>
+                            <select id="category" name="category" class="form-select" required>
                                 <option value="" disabled selected>Select an option</option>
                                 <option value="academe">Academe</option>
                                 <option value="startup">Start-up/Individual</option>
                                 <option value="msme">Micro Small Medium Enterprises</option>
                                 <option value="govoffice">Government Office/NGO/Org</option>
-                        
                             </select>
                         </div>
 
@@ -112,6 +113,7 @@
                         <button type="submit" class="btn btn-custom w-100">Sign Up</button>
                     </form>
 
+                    <p id="status-message" class="text-danger text-center mt-3"></p>
                     <!-- Login Link -->
                     <p class="text-center mt-3">
                         Already have an account? <a href="{{ route('login') }}" class="text-decoration-underline">Log In</a>
