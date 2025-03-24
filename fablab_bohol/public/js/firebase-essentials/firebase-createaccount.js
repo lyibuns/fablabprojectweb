@@ -1,14 +1,10 @@
-import { auth, db } from "./firebase.js";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { doc, setDoc, serverTimestamp } from "firebase/firestore";
-
-// Handle Sign-Up Form Submission
 document.getElementById("signup-form").addEventListener("submit", async function (event) {
     event.preventDefault();
 
     // Get form values
     const name = document.getElementById("name").value;
-    const gender = document.getElementById("gender").value;
+    const disaggregation = document.getElementById("disaggregation").value;
+    const category = document.getElementById("category").value;
     const contact = document.getElementById("contact").value;
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
@@ -17,30 +13,34 @@ document.getElementById("signup-form").addEventListener("submit", async function
 
     // Password validation
     if (password !== confirmPassword) {
+        statusMessage.className = "text-danger text-center mt-3";
         statusMessage.innerText = "Passwords do not match!";
         return;
     }
 
     try {
-        // Create Firebase Authentication user
-        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const userCredential = await firebase.auth().createUserWithEmailAndPassword(email, password);
         const user = userCredential.user;
 
-        // Save user details in Firestore
-        await setDoc(doc(db, "users", user.uid), {
+        // Save additional user info to Firestore
+        await firebase.firestore().collection("users").doc(user.uid).set({
             fullName: name,
-            gender: gender,
+            disaggregation: disaggregation,
+            category: category,
             contact: contact,
             email: email,
-            createdAt: serverTimestamp(),
+            createdAt: firebase.firestore.FieldValue.serverTimestamp()
         });
 
+        statusMessage.className = "text-success text-center mt-3";
         statusMessage.innerText = "Sign-up successful! Redirecting...";
         setTimeout(() => {
-            window.location.href = "/login"; // Redirect to login
+            window.location.href = "/login";
         }, 2000);
 
     } catch (error) {
+        console.error("Firebase Error:", error);
+        statusMessage.className = "text-danger text-center mt-3";
         statusMessage.innerText = error.message;
     }
 });

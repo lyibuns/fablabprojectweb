@@ -68,9 +68,10 @@
 
                     <!-- Forgot Password -->
                     <a href="#" class="forgot-password">Forgot password?</a>
-    
+                   
                     <!-- Login Button -->
                     <button type="submit" class="login-button">Log In</button>
+                    <p id="login-status" class="text-danger text-center mt-2"></p>
                 </form>
 
                 <!-- OR Separator -->
@@ -92,29 +93,6 @@
             </section>
         </div>
     </main>
-
-   <!-- ✅ Ensure `signInWithGoogle` is Available Before Running Inline Script -->
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        console.log("🔄 Checking if signInWithGoogle is defined:", typeof window.signInWithGoogle);
-
-        const googleLoginBtn = document.getElementById("googleSignInBtn");
-        if (googleLoginBtn) {
-            googleLoginBtn.addEventListener("click", function (event) {
-                event.preventDefault();
-                console.log("🔄 Google Sign-In Button Clicked");
-
-                if (typeof window.signInWithGoogle === "function") {
-                    signInWithGoogle();
-                } else {
-                    console.error("❌ signInWithGoogle function is not defined. Ensure firebase-auth.js is loaded correctly.");
-                }
-            });
-        } else {
-            console.error("❌ Google Sign-In Button not found.");
-        }
-    });
-</script>
 
 
 </body>

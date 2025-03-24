@@ -1,34 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FABLAB Bohol - Events</title>
     
-    <!-- ✅ Ensure base URL is set -->
-    <base href="{{ url('/') }}">
+@include('NavBars.head')
 
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/icon.png') }}">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    
-    <meta name="description" content="Join the latest events at FABLAB Bohol. Workshops and training sessions available.">
-    <meta name="keywords" content="FABLAB, Events, Workshops, Digital Fabrication, Bohol">
+</head>
+<body>
 
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-    
-    <div class="logo"><a href= "{{ route('home') }}"><img src="../images/fablab-logo.png" alt="Home" width="100" height=""></a></div>
-        
-        <ul>
-            <li><a href="{{ route('home') }}">Home</a></li>
-            <li><a href="{{ route('news') }}">Newsletter</a></li>
-            <li><a href="{{ route('events') }}" class="active">Events</a></li>
-            <li><a href="{{ route('facilities') }}">Facilities</a></li>
-            <li><a href="{{ route('aboutus') }}">About Us</a></li>
-            <li><a href="{{ route('location') }}">Location</a></li>
-        </ul>
-        <button onclick="window.location.href='{{ route('login') }}'"> Log In </button>
-    </nav>
+@yield('content')
+ <!--Navigation Bar -->   
+ @include('NavBars.navbar')
 
     <!-- Events Page Content -->
     <main>
