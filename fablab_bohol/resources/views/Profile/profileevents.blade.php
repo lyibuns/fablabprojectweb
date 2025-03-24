@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>FABLAB Bohol - Home</title>
+    <title>FABLAB Bohol - Events</title>
 
     <!-- ✅ Ensure base URL is set -->
     <base href="{{ url('/') }}">
