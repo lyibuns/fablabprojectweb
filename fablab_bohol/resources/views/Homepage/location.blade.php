@@ -38,17 +38,11 @@
             <ul>
                 <li>🚖 <strong>By Car:</strong> Use Google Maps and search for "Bohol Island State University". Follow the navigation directions.</li>
                 <li>🚌 <strong>By Public Transport:</strong> Take a tricycle or jeepney to <strong>CPG Avenue</strong> and ask for the BISU Main Campus.</li>
-                <li>✈ <strong>From the Airport:</strong> Tagbilaran Airport is only a <strong>10-minute</strong> drive from FABLAB Bohol.</li>
+                <li>✈ <strong>From the Airport:</strong> Panglao Airport is only a <strong>30-minute</strong> drive to FABLAB Bohol.</li>
             </ul>
         </section>
 
-        <!-- Contact Information -->
-        <section class="contact-info">
-            <h2>Contact Us</h2>
-            <p>📍 <strong>Address:</strong> BISU Main Campus, CPG Avenue, Tagbilaran City, Bohol</p>
-            <p>📞 <strong>Phone:</strong> 411-3147</p>
-            <p>📧 <strong>Email:</strong> <a href="mailto:fablabbhl@gmail.com">fablabbhl@gmail.com</a></p>
-        </section>
+       
     </main>
 
     <nav class="bottom-bar">

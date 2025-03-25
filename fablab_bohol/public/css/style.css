@@ -1266,20 +1266,66 @@ margin-left:100px;
 
 
 
-/*.abouthero h1{
+.aboutusmain-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+}
+
+.aboutusmain-content{
+    flex: 1;
+}
+
+.aboutsmain-container h1{
+    font-size:70px;
+    letter-spacing:1.5px;
+    color:#003366;
+    font-weight: bolder;
+}
+
+.aboutusmain-container h2{
+    margin-top:100px;
+    font-size:40px;
+    font-weight:lighter;
+    letter-spacing: 1px;
+}
+
+
+
+
+.aboutusintro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Stack items vertically */
+    text-align: center;
 
 }
 
-.aboutusstaff{
+.drneil {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Stack items vertically */
+    text-align: center;
+}
+
+.drneil img{
+    width: 200px; /* Ensure width and height are equal */
+    height: 200px;
+    object-fit: cover; /* Ensures the image fills the circle without distortion */
+   
+    display: block;
+    margin: 0 auto;
+ 
 
 }
 
 
-.director{
-    
-}
-
-*/
 
 .director {
     display: flex;
@@ -1467,8 +1513,7 @@ margin-left:100px;
 }
 
 .signup-text a {
-    color: #4e4e4e;
-    font-weight: bold;
+    color: #2563eb;
     text-decoration: underline;
 }
 
@@ -1573,7 +1618,6 @@ margin-left:100px;
 .btn-custom:hover {
     background-color: #3070af !important; /* Slightly darker on hover */
 }
-
 
 
 .container{

@@ -15,11 +15,11 @@
     <main>
 
     <div class="eventsmain-container">
-    <div class="eventsmain-content">
-        <h1>UNLEASH YOUR<br>CREATIVITY<br>AT FABLAB</h1>
+        <div class="eventsmain-content">
+            <h1>UNLEASH YOUR<br>CREATIVITY<br>AT FABLAB</h1>
+        </div>
+            <img src="{{ asset('images/eventshead.jpg') }}" alt="Event Image" class="event-image">
     </div>
-    <img src="{{ asset('images/eventshead.jpg') }}" alt="Event Image" class="event-image">
-</div>
 
 <div class="events-header">
     <h3>Upcoming Events</h3>
