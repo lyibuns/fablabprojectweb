@@ -2,11 +2,11 @@
 <html>
 <head>
 
-
 @include('NavBars.headpro')
 
 </head>
 <body>
+
 
 @include('Navbars.navbar')
 
@@ -14,8 +14,7 @@
  <!--Navigation Bar -->   
  @include('NavBars.sidebar')
 
-
-    <script src="{{ asset('js/sidepanel.js') }}"></script>
+ <script src="{{ asset('js/sidepanel.js') }}"></script>
 </body>
 
 </html>
