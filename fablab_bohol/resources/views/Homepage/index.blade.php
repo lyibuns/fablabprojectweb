@@ -197,8 +197,19 @@
         <h1> Where to Find Us </h1>
         <!-- Google Map Embed -->
         <div class="locgoogle">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3923.528500337368!2d123.8571663152906!3d9.647807993074206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33aa4b04e3b4b307%3A0x4f38f53f4c57c0d9!2sBohol%20Island%20State%20University!5e0!3m2!1sen!2sph!4v1700000000000&z=18" frameborder="0" allowfullscreen>
-        </iframe>
+        <div style="width: 100%; height: 450px;">
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d983.764705612746!2d123.84987406953452!3d9.659918165708865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33aa4fb252bd4e4d%3A0x8535a6b7b68e2029!2sFABLAB%20Bohol!5e0!3m2!1sen!2sph!4v1711338917723!5m2!1sen!2sph"
+        width="100%"
+        height="100%"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</div>
+
+
         <button class="read-more" onclick="location.href='https://maps.app.goo.gl/9Tp4Gn1TP9AAF6vs8'">Location</button>
         </div>
     </section>
@@ -249,18 +260,7 @@
             </ul>
             </div>
 
-            <div id="mySidepanel" class="sidepanel">
-                    <button href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</button>
-                    <a href="{{ route('profilebooking') }}">
-                        <img src="../images/logobooking.png" class="side-icon" alt= "Bookings">Bookings</a>
-                    <a href="{{ route('profileevents') }}">
-                        <img src="../images/logoevent.png" class="side-icon" alt= "Events">Events</a>
-                    <a href="{{ route('profile') }}">
-                        <img src="../images/logoprofile.png" class="side-icon" alt= "Profile">My Profile</a>
-                    <a href="javascript:void(0)" onclick="logoutUser()">
-                            <img src="../images/logologout.png" class="side-icon" alt="Logout">Logout
-                    </a>
-            </div>
+            @include('NavBars.sidebar')
 
         <!-- ✅ Burger Button -->
   

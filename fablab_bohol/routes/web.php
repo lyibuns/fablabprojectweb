@@ -9,6 +9,8 @@ use App\Http\Controllers\Homepage\FacilitiesController;
 use App\Http\Controllers\Homepage\AboutusController;
 use App\Http\Controllers\Homepage\LocationController;
 
+
+
 // Auth
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\SignupController;
@@ -17,6 +19,12 @@ use App\Http\Controllers\Auth\SignupController;
 use App\Http\Controllers\Profile\ProfileEventsController;
 use App\Http\Controllers\Profile\ProfileBookingController;
 use App\Http\Controllers\Profile\ProfileController;
+
+use App\Http\Controllers\Profile\AddNewsController;
+use App\Http\Controllers\Profile\AddEventsController;
+use App\Http\Controllers\Profile\AdProfileController;
+use App\Http\Controllers\Profile\MachinesController;
+use App\Http\Controllers\Profile\ReportsController;
 
 
 
@@ -50,6 +58,7 @@ Route::get('/events', [EventsController::class, 'index'])->name('events');
 Route::get('/facilities', [FacilitiesController::class, 'index'])->name('facilities');
 Route::get('/aboutus', [AboutusController::class, 'index'])->name('aboutus');
 Route::get('/location', [LocationController::class, 'index'])->name('location');
+   
 
 //Auth Route
 
@@ -68,3 +77,8 @@ Route::get('/home', function () {
     return view('home');
 })->middleware('firebase.auth');
 
+Route::get('/addevents', [AddEventsController::class, 'index'])->name('addevents');
+Route::get('/addnews', [AddNewsController::class, 'index'])->name('addnews');
+Route::get('/adprofile', [AdProfileController::class, 'index'])->name('adprofile');
+Route::get('/machines', [MachinesController::class, 'index'])->name('machines');
+Route::get('/reports', [ReportsController::class, 'index'])->name('reports');

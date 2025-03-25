@@ -8,6 +8,9 @@
 </head>
 <body>
 
+
+@include('Navbars.navbar')
+
 @yield('content')
  <!--Navigation Bar -->   
  @include('NavBars.sidebar')
