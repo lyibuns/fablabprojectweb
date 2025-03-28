@@ -11,6 +11,8 @@
  <!--Navigation Bar -->   
  @include('NavBars.navbar')
 
+ 
+ @include('NavBars.sidebar')
     <!-- Events Page Content -->
     <main>
 
@@ -178,5 +180,7 @@
         </nav>
 
 <script src="{{ asset('js/search-events.js') }}"></script>
+
+<script src="{{ asset('js/sidepanel.js') }}"></script>
 </body>
 </html>

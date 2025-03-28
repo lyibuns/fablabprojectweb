@@ -10,6 +10,8 @@
 @yield('content')
  <!--Navigation Bar -->   
  @include('NavBars.navbar')
+ 
+ @include('NavBars.sidebar')
 
     
     
@@ -260,8 +262,6 @@
             </ul>
             </div>
 
-            @include('NavBars.sidebar')
-
         <!-- ✅ Burger Button -->
   
 
@@ -271,5 +271,6 @@
     <!-- ✅ Full-Screen Dark Overlay -->
     <div id="overlay" class="overlay" onclick="closeNav()"></div>
 
+    <script src="{{ asset('js/sidepanel.js') }}"></script>
 </body>
 </html>

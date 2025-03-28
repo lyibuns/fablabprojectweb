@@ -13,6 +13,8 @@
 @yield('content')
  <!--Navigation Bar -->   
  @include('NavBars.sidebar')
+ 
+ @include('NavBars.leftsidebar')
 
 
     <script src="{{ asset('js/sidepanel.js') }}"></script>

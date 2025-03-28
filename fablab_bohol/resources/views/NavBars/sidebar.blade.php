@@ -10,14 +10,12 @@
             <a href="{{ route('adprofile') }}">
             <img src="../images/logoprofile.png" class="side-icon" alt= "Profile">Admin Profile</a>
             <a href="{{ route('machines') }}">
-                <img src="../images/logomachine.png" class="side-icon" alt= "Machines">Machines</a>
+                <img src="../images/logobooking.png" class="side-icon" alt= "Machines">Booking Management</a>
             <a href="{{ route('addevents') }}">
+            <img src="../images/logonewsletter.png" class="side-icon" alt= "Newsletters">Newsletters</a>
+            <a href="{{ route('home') }}">
                 <img src="../images/logoevent.png" class="side-icon" alt= "Events">Events</a>
             <a href="{{ route('addnews') }}">
-                <img src="../images/logonewsletter.png" class="side-icon" alt= "Newsletters">Newsletters</a>
-            <a href="{{ route('reports') }}">
-                <img src="../images/logoreport.png" class="side-icon" alt= "Reports">Reports</a>
-            <a href="{{ route('home') }}">
                 <img src="../images/logologout.png" class="side-icon" alt= "Logout">Logout</a>
         </div>
 
