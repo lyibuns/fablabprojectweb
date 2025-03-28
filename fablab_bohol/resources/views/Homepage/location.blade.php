@@ -11,6 +11,7 @@
  <!--Navigation Bar -->   
  @include('NavBars.navbar')
 
+ @include('NavBars.sidebar')
 
     <!-- Location Page Content -->
     <main class="container">
@@ -92,5 +93,7 @@
             </div>
         </nav>
 
+        
+  <script src="{{ asset('js/sidepanel.js') }}"></script>
 </body>
 </html>

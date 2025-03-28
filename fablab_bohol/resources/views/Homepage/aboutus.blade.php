@@ -11,6 +11,8 @@
  <!--Navigation Bar -->   
  @include('NavBars.navbar')
 
+ 
+ @include('NavBars.sidebar')
     <!-- About Us Page Content -->
     <main>
         <div class="aboutusmain-container">
@@ -148,6 +150,8 @@
             </div>
         </nav>
 
+        
+  <script src="{{ asset('js/sidepanel.js') }}"></script>
 
 
 </body>

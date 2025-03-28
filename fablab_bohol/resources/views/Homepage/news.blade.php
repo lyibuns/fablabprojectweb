@@ -11,6 +11,7 @@
  <!--Navigation Bar -->   
  @include('NavBars.navbar')
 
+ @include('NavBars.sidebar')
     
     <main>
     <section class="newsletter">
@@ -96,5 +97,7 @@
         </nav>
 
 <script src="{{ asset('js/search-news.js') }}"></script>
+
+<script src="{{ asset('js/sidepanel.js') }}"></script>
 </body>
 </html>
