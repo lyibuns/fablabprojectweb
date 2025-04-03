@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  @include('NavBars.headpro')
+  @include('NavBars.head')
   @yield('content')
 </head>
 <body>

@@ -2,7 +2,7 @@
 <html>
 <head>
 
-@include('NavBars.headpro')
+@include('NavBars.head')
 
 </head>
 <body>
