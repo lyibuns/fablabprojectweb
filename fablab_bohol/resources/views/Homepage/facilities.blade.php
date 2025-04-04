@@ -90,7 +90,7 @@
         <p>Fill out the form to reserve a facility.</p>
         <form>
             
-            <label for="facilitiesDate">Select Date:</label>
+            <label for="facilitiesDate" class="facdate">Select Date:</label>
             <input type="date" id="facilitiesDate" required>
 
             <label for="facilitiesTime">Select Time Slot(s):</label>
@@ -98,10 +98,10 @@
     <!-- Time slots will be generated here by JavaScript -->
 </div>
 
-            <label for="facilitiesSelect">Select Facility:</label>
-            <select id="facilitiesSelect">
+            <label for="facilitiesSelect" class="facilities-label">Machine:</label>
+            <label id="facilitiesSelect" class="facilities-value">
                 <!-- Facilities will be added dynamically -->
-            </select>
+</label>
             
 
             <button type="submit">Confirm Booking</button>

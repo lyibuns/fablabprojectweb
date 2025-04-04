@@ -39,7 +39,7 @@
             </a>
             <a href="https://m.me/fablabbohol" target="_blank">
                 <img src="../images/logomess.png" alt="Messenger">
-            <a>
+        </a>
             </div>
             </ul>
             </div>
