@@ -6,8 +6,25 @@ document.addEventListener("DOMContentLoaded", function () {
     const timeSlotContainer = document.getElementById("facilitiesTime");
     const bookingForm = facilitiesModal.querySelector("form");
     const dateInput = document.getElementById("facilitiesDate");
+    const successModal = document.getElementById("successModal");
+    const closeSuccessBtn = document.getElementById("closeSuccess");
 
+    
     let isFullyBooked = false;
+
+    const errorContainer = document.createElement("div");
+    errorContainer.className = "alert alert-danger mt-2 d-none";
+    bookingForm.insertBefore(errorContainer, bookingForm.querySelector("button[type='submit']"));
+
+    function showError(message) {
+        errorContainer.textContent = message;
+        errorContainer.classList.remove("d-none");
+    }
+
+    function clearErrors() {
+        errorContainer.classList.add("d-none");
+        errorContainer.textContent = "";
+    }
 
     const formatTime = (h, m) => {
         const hh = h % 12 || 12;
@@ -70,6 +87,13 @@ document.addEventListener("DOMContentLoaded", function () {
             wrapper.appendChild(labelEl);
 
             wrapper.addEventListener("click", () => {
+                const checkedCount = bookingForm.querySelectorAll('input[name="timeSlots[]"]:checked').length;
+
+                if (!checkbox.checked && checkedCount >= 4) {
+                    showError("Max 2 hours (4 slots) per day. Book extra time on another date.");
+                    return;
+                }
+
                 checkbox.checked = !checkbox.checked;
                 wrapper.classList.toggle("checked", checkbox.checked);
             });
@@ -78,7 +102,6 @@ document.addEventListener("DOMContentLoaded", function () {
             start += 30;
         }
 
-        // Check if any time slot was generated
         if (timeSlotContainer.children.length === 0) {
             isFullyBooked = true;
             timeSlotContainer.innerHTML = `
@@ -103,6 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const selectedDate = dateInput.value;
                 const booked = await getBookedSlots(selectedFacility, selectedDate);
                 generateTimeSlots(booked);
+                clearErrors();
             };
         });
     });
@@ -115,16 +139,26 @@ document.addEventListener("DOMContentLoaded", function () {
         if (event.target === facilitiesModal) {
             facilitiesModal.style.display = "none";
         }
+        if (event.target === successModal) {
+            successModal.style.display = "none";
+            location.reload();
+        }
+    });
+
+    closeSuccessBtn.addEventListener("click", () => {
+        successModal.style.display = "none";
+        location.reload();
     });
 
     bookingForm.addEventListener("submit", async function (e) {
         e.preventDefault();
+        clearErrors();
 
         const date = dateInput.value;
         const facility = facilitiesDropdown.value;
 
         if (isFullyBooked) {
-            alert("This date is fully booked. Please choose another.");
+            showError("This date is fully booked. Please choose another.");
             return;
         }
 
@@ -132,14 +166,19 @@ document.addEventListener("DOMContentLoaded", function () {
                                .map(el => el.value);
 
         if (!date || !facility || timeSlots.length === 0) {
-            alert("Please complete all fields.");
+            showError("Please complete all fields.");
+            return;
+        }
+
+        if (timeSlots.length > 4) {
+            showError("Max 2 hours (4 slots) per day. Book extra time on another date.");
             return;
         }
 
         const alreadyBooked = await getBookedSlots(facility, date);
         const conflict = timeSlots.find(slot => alreadyBooked.includes(slot));
         if (conflict) {
-            alert(`Time slot "${conflict}" is already booked. Please choose another.`);
+            showError(`Time slot "${conflict}" is already booked. Please choose another.`);
             return;
         }
 
@@ -149,8 +188,8 @@ document.addEventListener("DOMContentLoaded", function () {
             timeSlots
         });
 
-        alert("Booking successful!");
         bookingForm.reset();
         facilitiesModal.style.display = "none";
+        successModal.style.display = "flex";
     });
 });
