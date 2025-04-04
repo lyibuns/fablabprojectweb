@@ -5,20 +5,21 @@ body{
 }
 
 main{
+    margin-top:100px;
     margin-left:100px;
     margin-right:100px;
-    margin-top:150px;
     padding-bottom: 100;
 }
 
 .hero-slideshow-container {
+    margin-top:200px;
     position: relative;
     margin: auto;
     max-height:300px;
-    margin-top: 100px; /* ✅ Fixes white space issue */
 }
 
 .hero-slide {
+    margin-top:100px;
     display: none;
     position: relative;
 }
@@ -53,7 +54,6 @@ main{
 
 /* Caption Paragraph */
 .hero-caption p {
-    margin-top:-50px;
     font-size: 25px;
     font-size:lighter;
 
@@ -62,10 +62,10 @@ main{
 /* Caption Button */
 .hero-caption button {
     background-color: transparent;
-    padding: 20px 20px;
+    padding: 15px 15px;
     border: 1px solid #142944; /* Dark blue border */
-    
-    border-radius: 25px;
+    border-radius: 50px;
+    width:130px;
     color: #142944; /* Text color matches border */
     background-color:white;
     font-size: 15px;
@@ -100,7 +100,7 @@ main{
 
 /* Caption Paragraph */
 .hero-captionblue p {
-    margin-top:-50px;
+
     font-size: 25px;
     font-size:lighter;
 
@@ -109,10 +109,10 @@ main{
 /* Caption Button */
 .hero-captionblue button {
     background-color: transparent;
-    padding: 20px 20px;
+    padding: 15px 15px;
     border: 1px solid #142944; /* Dark blue border */
-    
-    border-radius: 25px;
+    width:130px;
+    border-radius: 50px;
     color: #142944; /* Text color matches border */
     background-color:white;
     font-size: 15px;
@@ -334,6 +334,7 @@ main{
     margin:0;
     margin-bottom:20px;
     padding-top:50px;
+    color: white;
 }
 
 .welcome p{
@@ -539,6 +540,8 @@ margin-left:100px;
     color: white;
 }
 
+
+
 /* FACILITIES HOME */
 .facilitieshome {
     margin-top:150px;
@@ -551,6 +554,7 @@ margin-left:100px;
     font-size: 30px;
     margin-bottom: -50px;
 }
+
 
 .facilitieshome hr {
     width: 30%; 
@@ -728,12 +732,14 @@ margin-left:100px;
 
 
 .bottom-bar {
+    margin-top:100px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     padding: 10px 20px;
     background-color: #EFF0F1;;
-    max-width:1800px;
+    width:100%;
+
 }
 
 .botlogos {
@@ -762,7 +768,7 @@ margin-left:100px;
 .botlearnmore h5, .botorg h5, .botconnect h5{
    margin-bottom:5px;
    color: #021F31;
-}
+}  
 .botlearnmore ul, .botorg ul{
     list-style: none;
 
@@ -775,7 +781,7 @@ margin-left:100px;
 }
 
 .botlearnmore li, .botorg li{
-    margin-left:-40px;
+
     font-size:15px;
     margin-bottom:10px;
 
@@ -1097,6 +1103,19 @@ margin-left:100px;
 
 /*FACILITIES MAIN*/
 
+.fac-intro{
+    margin-top:150px;
+}
+
+.fac-intro h1{
+    font-weight: bold;
+    text-align: center;
+}
+.fac-intro p{
+    text-align: center;
+}
+
+
 .facilities-list {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* Ensures 4 machines per row */
@@ -1113,7 +1132,7 @@ margin-left:100px;
     border: 1px solid #ddd;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    height: 320px; /* Adjusted for proper spacing */
+    height: 400px; /* Adjusted for proper spacing */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -1121,6 +1140,7 @@ margin-left:100px;
     position: relative; /* Ensures child elements are positioned relative to this box */
     overflow: hidden; /* Prevents content from overflowing */
 }
+
 
 /* Ensures all images are the same size */
 .facility img {
@@ -1210,13 +1230,15 @@ margin-left:100px;
 
 /* Style for the modal content */
 .facilities-modal-content {
-    background-color: #fff;
-    padding: 40px;
+
+
     border-radius: 10px;
-    width: 400px;
-    max-width: 90%;
+    width: 500px;
+    max-width: 300px;
 
 }
+
+
 
 
 /* Responsive: Adjust grid for smaller screens */
@@ -1375,7 +1397,7 @@ margin-left:100px;
     flex: 1;
 }
 
-.aboutsmain-container h1{
+.aboutusmain-container h1{
     font-size:70px;
     letter-spacing:1.5px;
     color:#003366;
@@ -1435,15 +1457,9 @@ margin-left:100px;
     border-radius: 50%; /* Makes it a perfect circle */
     display: block;
     margin: 0 auto;
+    margin-bottom:30px;
 }
 
-.director h4{
-    margin-bottom: -10px;
-}
-
-.director p{
-    margin-bottom:50px;
-}
 .staff-container{
     display: flex;
     justify-content: center; /* Centers the row */
@@ -1463,10 +1479,11 @@ margin-left:100px;
     border-radius: 50%; /* Makes it a perfect circle */
     display: block;
     margin: 0 auto;
+    margin-bottom:30px;
 }
 
 .staff h4{
-    margin-bottom: -10px;
+    margin-bottom: 20px;
 }
 
 .staff p{
@@ -1498,6 +1515,14 @@ margin-left:100px;
     width: 100%;
     max-width: 400px;
     text-align: center;
+}
+
+.location-info h1{
+    margin-top:100px;
+    font-size:70px;
+    letter-spacing:1.5px;
+    color:#003366;
+    font-weight: bolder;
 }
 
 /* LOGO */
@@ -1842,32 +1867,35 @@ margin-left:100px;
 
 
 #leftsidebar .profile {
-    margin-top:30px;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 1.5rem;
+    text-decoration: none;
+    color:black;
 }
 
 #leftsidebar .avatar {
+    margin-top:30px;
     width: 96px;
     height: 96px;
-    background-color: #0B1F3A;
     border-radius: 9999px;
-    margin-bottom: 0.5rem;
 }
 
 #leftsidebar .role {
-    margin-top:10px;
+
     font-weight: bold;
     font-size: 0.875rem;
     text-decoration: none;
     color:#000;
+
 }
+
 
 #leftsidebar .name {
     font-size: .9rem;
-    color: #6b7280;
+    color: #0B1F3A;
+    margin-top:-20px;
 }
 
 #leftsidebar .nav-links {
@@ -1892,7 +1920,7 @@ margin-left:100px;
 
 #leftsidebar .nav-links a:hover {
     background-color: #f3f4f6;
-    width:50%;
+    width:70%;
 }
 
 
@@ -1904,7 +1932,7 @@ margin-left:100px;
 
 .page-wrapper {
     margin-left: 300px; /* sidebar width */
-    margin-top: 100px;   /* navbar height */
+    margin-top:150px;
     padding: 20px;
 }
 
@@ -2108,10 +2136,6 @@ margin-left:100px;
     overflow-x: auto;
   }
 
-  .newsletter-page {
-    padding: 40px 60px;
-    font-family: Arial, sans-serif;
-  }
   
   .newsletter-page h1 {
     color: #0b1f3a;
@@ -2691,4 +2715,14 @@ margin-left:100px;
         border-radius: 10px;
         margin-bottom: 10px;
       }
-      
+
+.inventorywrapper{
+        display: flex;
+        justify-content: center;
+        align-items: start;
+        min-height: 100vh;
+        margin-top:120px;
+        margin-left:200px;
+
+}
+

@@ -25,6 +25,8 @@ use App\Http\Controllers\Profile\AddEventsController;
 use App\Http\Controllers\Profile\AdProfileController;
 use App\Http\Controllers\Profile\MachinesController;
 use App\Http\Controllers\Profile\ReportsController;
+use App\Http\Controllers\Profile\InventoryController;
+
 
 
 
@@ -82,3 +84,4 @@ Route::get('/addnews', [AddNewsController::class, 'index'])->name('addnews');
 Route::get('/adprofile', [AdProfileController::class, 'index'])->name('adprofile');
 Route::get('/machines', [MachinesController::class, 'index'])->name('machines');
 Route::get('/reports', [ReportsController::class, 'index'])->name('reports');
+Route::get('/inventory', [InventoryController::class, 'index'])->name('inventory');

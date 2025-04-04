@@ -4,6 +4,7 @@
 
 @include('NavBars.head')
 
+
 </head>
 <body>
 
@@ -15,8 +16,10 @@
         
     <!-- Facilities Page Content -->
     <main>
-        <h1>Our Facilities</h1>
-        <p>FABLAB Bohol is equipped with state-of-the-art digital fabrication tools. Below is a list of our key equipment that enables rapid prototyping and manufacturing.</p>
+        <div class="fac-intro">
+            <h1>Reserve Our Facilities Now.</h1>
+            <p>FABLAB Bohol is equipped with state-of-the-art digital fabrication tools. Below is a list of our key equipment that enables rapid prototyping and manufacturing.</p>
+        </div>
 
         <section class="facilities-list">
 
@@ -78,83 +81,47 @@
 
         </section>
 
-        <!-- Popup Modal -->
-<!-- Facilities Booking Modal -->
-<div id="facilitiesModal" class="facilities-modal">
-    <div class="facilities-modal-content">
-        <span class="close-facilities-modal">&times;</span>
-        <h2>Book a Facility</h2>
-        <p>Fill out the form to reserve a facility.</p>
-        <form>
-            
-            <label for="facilitiesDate">Select Date:</label>
-            <input type="date" id="facilitiesDate" required>
+                <!-- Popup Modal -->
+        <!-- Facilities Booking Modal -->
+        <div id="facilitiesModal" class="facilities-modal">
+            <div class="facilities-modal-content">
+                <span class="close-facilities-modal">&times;</span>
+                <h2>Book a Facility</h2>
+                <p>Fill out the form to reserve a facility.</p>
+                <form>
+                    
+                    <label for="facilitiesDate">Select Date:</label>
+                    <input type="date" id="facilitiesDate" required>
 
-            <label for="facilitiesTime">Select Time Slot(s):</label>
-<div id="facilitiesTime" class="time-slot-container">
-    <!-- Time slots will be generated here by JavaScript -->
-</div>
+                    <label for="facilitiesTime">Select Time Slot(s):</label>
+                    <div id="facilitiesTime" class="time-slot-container">
+                        <!-- Time slots will be generated here by JavaScript -->
+                    </div>
 
-            <label for="facilitiesSelect">Select Facility:</label>
-            <select id="facilitiesSelect">
-                <!-- Facilities will be added dynamically -->
-            </select>
-            
+                    <label for="facilitiesSelect">Select Facility:</label>
+                    <select id="facilitiesSelect">
+                        <!-- Facilities will be added dynamically -->
+                    </select>
+                    
 
-            <button type="submit">Confirm Booking</button>
-        </form>
-    </div>
-</div>
+                    <button type="submit">Confirm Booking</button>
+                </form>
+            </div>
+        </div>
 
+         <div id="successModal" class="modal" style="display:none; align-items:center; justify-content:center; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.5);">
+            <div style="background:white; padding:60px; border-radius:8px; text-align:center;">
+                <h4>Booking Successful!</h4>
+                <p>Your facility has been booked.</p>
+                <button id="closeSuccess" class="btn btn-success mt-3">Done</button>
+
+
+            </div>
+        </div>
 
     </main>
 
-    <nav class="bottom-bar">
-        <div class="botlogos">
-        <img src="../images/bottombar_fablab.png" alt="fablab" class="bottom-bar-img">
-        <img src="../images/bottombar_dti.png" alt="dti" class="bottom-bar-img">
-        <img src="../images/bottombar_bisu.png" alt="bisu" class="bottom-bar-img">
-        <img src="../images/bottombar_dost.png" alt="dost" class="bottom-bar-img">
-        <img src="../images/bottombar_jica.png" alt="jica" class="bottom-bar-img">  
-        </div>
-            <div class="botlearnmore">
-            <h5>Learn More</h5>
-            <ul>
-                <li><a href="{{ route('events') }}">Events</a></li>
-                <li><a href="">Newsletter</a></li>
-            </ul>
-            </div>
-            <div class="botorg">
-            <h5>Organization</h5>
-            <ul>
-                <li><a href="{{ route('aboutus') }}">About Us</a></li>
-                <li><a href="{{ route('facilities') }}">Facilities</a></li>
-                <li><a href="">Policy</a></li>
-                <li><a href="">FAQs</a></li>
-            </ul>
-            </div>
-
-            <div class="botconnect">
-            <h5>Connect with Us</h5>
-            <ul>
-                <li><img src="../images/logoloc.png" alt="Location">BISU Main Campus CPG Avenue, Tagbilaran City, Bohol</li>
-                <li><img src="../images/logocontact.png" alt="Phone">411-3147</li>
-                <li><img src="../images/logoemail.png" alt="Email"><a href="mailto:fablabbhl@gmail.com">fablabbhl@gmail.com</a></li>
-            <div class="vertlogo">
-            <a href="https://www.facebook.com/fablabbohol" target="_blank">
-
-            <img src="../images/logofb.png" alt="Facebook">
-            </a>
-            <a href="https://www.instagram.com/fablab.bohol/" target="_blank">
-                <img src="../images/logoig.png" alt="Instagram">    
-            </a>
-            <a href="https://m.me/fablabbohol" target="_blank">
-                <img src="../images/logomess.png" alt="Messenger">
-            <a>
-            </div>
-            </ul>
-            </div>
-        </nav>
+    @include('NavBars.botbar')
 
 <!-- Link to External JavaScript File -->
 <script src="js/booking-popup.js"></script>
