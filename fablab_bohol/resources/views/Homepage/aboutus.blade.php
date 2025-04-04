@@ -18,19 +18,21 @@
         <div class="aboutusmain-container">
             <div class="aboutusmain-content">
        <!-- <img src="" alt="About Us Picture"> -->   
-                <h1>POWERING THE <br> FUTURE OF <br> FABRICATION</h1>
+                <h1>ABOUT US</h1>
             </div>
+            <img src="{{ asset('images/abtus.jpg') }}" alt="About Us Picture" class="img-fluid" style="max-width: 700px;">
+
          </div>
     
       
 
         <div class="aboutustext">
-        <h2>We create new ways to get inspired.</h2>
-        <p>We invent. We prototype. We experiment with new technologies. We share snippets of our life experiences with each other. It helps influence the way we think and the way we work.</p>
+            <h2>We create new ways to get inspired.</h2>
+            <p>We invent. We prototype. We experiment with new technologies. We share snippets of our life experiences with each other. It helps influence the way we think and the way we work.</p>
         </div>
 
         <div class="aboutusintro">
-        <img src="{{ asset('images/aboutus.jpg') }}" alt="About Us Picture">
+            <img src="{{ asset('images/aboutus.jpg') }}" alt="About Us Picture">
         </div>
         <p>FABLAB Bohol Philippines is the first Fabrication Laboratory in the Philippines.</p>
 
@@ -56,7 +58,7 @@
         <!-- Inserted Social Links -->
         <div class="mt-6">
             <!--<h4>Links</h4>-->
-            <img src="" alt="Photo" class="img-fluid mx-auto d-block">
+             <!--<img src="" alt="Photo" class="img-fluid mx-auto d-block"> -->
             <ul class="list-unstyled fs-5">
                 <li>
                     <a href="https://www.youtube.com/watch?v=ek4cprnx0bI" target="_blank" class="text-decoration-none" style="color:rgb(43, 51, 162);">
@@ -103,52 +105,7 @@
 
     </main>
 
-    <nav class="bottom-bar">
-        <div class="botlogos">
-        <img src="../images/bottombar_fablab.png" alt="fablab" class="bottom-bar-img">
-        <img src="../images/bottombar_dti.png" alt="dti" class="bottom-bar-img">
-        <img src="../images/bottombar_bisu.png" alt="bisu" class="bottom-bar-img">
-        <img src="../images/bottombar_dost.png" alt="dost" class="bottom-bar-img">
-        <img src="../images/bottombar_jica.png" alt="jica" class="bottom-bar-img">  
-        </div>
-            <div class="botlearnmore">
-            <h5>Learn More</h5>
-            <ul>
-                <li><a href="{{ route('events') }}">Events</a></li>
-                <li><a href="">Newsletter</a></li>
-            </ul>
-            </div>
-            <div class="botorg">
-            <h5>Organization</h5>
-            <ul>
-                <li><a href="{{ route('aboutus') }}">About Us</a></li>
-                <li><a href="{{ route('facilities') }}">Facilities</a></li>
-                <li><a href="">Policy</a></li>
-                <li><a href="">FAQs</a></li>
-            </ul>
-            </div>
-
-            <div class="botconnect">
-            <h5>Connect with Us</h5>
-            <ul>
-                <li><img src="../images/logoloc.png" alt="Location">BISU Main Campus CPG Avenue, Tagbilaran City, Bohol</li>
-                <li><img src="../images/logocontact.png" alt="Phone">411-3147</li>
-                <li><img src="../images/logoemail.png" alt="Email"><a href="mailto:fablabbhl@gmail.com">fablabbhl@gmail.com</a></li>
-            <div class="vertlogo">
-            <a href="https://www.facebook.com/fablabbohol" target="_blank">
-
-            <img src="../images/logofb.png" alt="Facebook">
-            </a>
-            <a href="https://www.instagram.com/fablab.bohol/" target="_blank">
-                <img src="../images/logoig.png" alt="Instagram">    
-            </a>
-            <a href="https://m.me/fablabbohol" target="_blank">
-                <img src="../images/logomess.png" alt="Messenger">
-            <a>
-            </div>
-            </ul>
-            </div>
-        </nav>
+    @include('NavBars.botbar')
 
         
   <script src="{{ asset('js/sidepanel.js') }}"></script>

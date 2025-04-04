@@ -5,20 +5,21 @@ body{
 }
 
 main{
+    margin-top:100px;
     margin-left:100px;
     margin-right:100px;
-    margin-top:150px;
     padding-bottom: 100;
 }
 
 .hero-slideshow-container {
+    margin-top:200px;
     position: relative;
     margin: auto;
     max-height:300px;
-    margin-top: 100px; /* ✅ Fixes white space issue */
 }
 
 .hero-slide {
+    margin-top:100px;
     display: none;
     position: relative;
 }
@@ -53,7 +54,6 @@ main{
 
 /* Caption Paragraph */
 .hero-caption p {
-    margin-top:-50px;
     font-size: 25px;
     font-size:lighter;
 
@@ -62,10 +62,10 @@ main{
 /* Caption Button */
 .hero-caption button {
     background-color: transparent;
-    padding: 20px 20px;
+    padding: 15px 15px;
     border: 1px solid #142944; /* Dark blue border */
-    
-    border-radius: 25px;
+    border-radius: 50px;
+    width:130px;
     color: #142944; /* Text color matches border */
     background-color:white;
     font-size: 15px;
@@ -100,7 +100,7 @@ main{
 
 /* Caption Paragraph */
 .hero-captionblue p {
-    margin-top:-50px;
+
     font-size: 25px;
     font-size:lighter;
 
@@ -109,10 +109,10 @@ main{
 /* Caption Button */
 .hero-captionblue button {
     background-color: transparent;
-    padding: 20px 20px;
+    padding: 15px 15px;
     border: 1px solid #142944; /* Dark blue border */
-    
-    border-radius: 25px;
+    width:130px;
+    border-radius: 50px;
     color: #142944; /* Text color matches border */
     background-color:white;
     font-size: 15px;
@@ -231,7 +231,7 @@ main{
     align-items: center;
     background-color: #142944;
     padding: 5px 10px;
-    z-index:1000;
+    z-index:300;
 }
 
 .navbar button{
@@ -334,6 +334,7 @@ main{
     margin:0;
     margin-bottom:20px;
     padding-top:50px;
+    color: white;
 }
 
 .welcome p{
@@ -509,6 +510,7 @@ margin-left:100px;
 
 .event1 h3, .event2 h3, .event3 h3{
     color: #064e7b;
+    font-size:20px;
 }
 
 .eventshome img{
@@ -539,6 +541,8 @@ margin-left:100px;
     color: white;
 }
 
+
+
 /* FACILITIES HOME */
 .facilitieshome {
     margin-top:150px;
@@ -551,6 +555,7 @@ margin-left:100px;
     font-size: 30px;
     margin-bottom: -50px;
 }
+
 
 .facilitieshome hr {
     width: 30%; 
@@ -656,6 +661,8 @@ margin-left:100px;
     color: white;
 }
 
+
+
 .locationhome{
     margin-top:100px;
     display:flex;
@@ -728,12 +735,14 @@ margin-left:100px;
 
 
 .bottom-bar {
+    margin-top:100px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     padding: 10px 20px;
     background-color: #EFF0F1;;
-    max-width:1800px;
+    width:100%;
+
 }
 
 .botlogos {
@@ -750,6 +759,7 @@ margin-left:100px;
 
 
 .botlearnmore, .botorg, .botconnect {
+    margin-top:20px;
     min-height: 100px; /* Ensures they align with the logos */
     display: flex;
     flex-direction: column;
@@ -762,20 +772,21 @@ margin-left:100px;
 .botlearnmore h5, .botorg h5, .botconnect h5{
    margin-bottom:5px;
    color: #021F31;
-}
+   font-weight:bold;
+}  
 .botlearnmore ul, .botorg ul{
     list-style: none;
-
+    margin-left:-30px;
 
 }
 .botconnect ul{
     list-style: none;
-
+    
 
 }
 
 .botlearnmore li, .botorg li{
-    margin-left:-40px;
+
     font-size:15px;
     margin-bottom:10px;
 
@@ -792,7 +803,7 @@ margin-left:100px;
 
 .botconnect img{
     width:20px;
-    margin-left:-40px;
+    margin-left:-30px;
     margin-right:20px;
 }
 
@@ -879,7 +890,7 @@ margin-left:100px;
     list-style-type: circle;
     color:#003366;
     background-color:rgb(244, 244, 244);
-    width:740px;
+    width:820px; 
     padding:50px;
     
 }
@@ -903,6 +914,7 @@ margin-left:100px;
     width: 100%;
     max-width: 1400px;
     margin: auto;
+    margin-top:150px;
 }
 
 .eventsmain-content {
@@ -1029,7 +1041,11 @@ margin-left:100px;
 
 .event-box h3 {
     color: #064e7b;
-    margin-bottom:-10px;
+    font-size: 20px;
+}
+
+.event-box h4 {
+    font-size: 15px;
 }
 
 .eventsmain img {
@@ -1044,6 +1060,7 @@ margin-left:100px;
     border: 2px solid #064e7b;
     border-radius: 5px;
     margin: 10px 0;
+
 }
 
 .eventsmain button {
@@ -1097,6 +1114,19 @@ margin-left:100px;
 
 /*FACILITIES MAIN*/
 
+.fac-intro{
+    margin-top:170px;
+}
+
+.fac-intro h1{
+    font-weight: bold;
+    text-align: center;
+}
+.fac-intro p{
+    text-align: center;
+}
+
+
 .facilities-list {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* Ensures 4 machines per row */
@@ -1113,7 +1143,7 @@ margin-left:100px;
     border: 1px solid #ddd;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    height: 320px; /* Adjusted for proper spacing */
+    height: 400px; /* Adjusted for proper spacing */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -1121,6 +1151,7 @@ margin-left:100px;
     position: relative; /* Ensures child elements are positioned relative to this box */
     overflow: hidden; /* Prevents content from overflowing */
 }
+
 
 /* Ensures all images are the same size */
 .facility img {
@@ -1186,6 +1217,7 @@ margin-left:100px;
     border-radius: 50px;
     cursor: pointer;
     transition: background-color 0.2s ease;
+    margin-bottom:15px;
 }
 
 .book-facility:hover {
@@ -1206,17 +1238,14 @@ margin-left:100px;
     justify-content: center;
     align-items: center;
     background-color: rgba(0,0,0,0.6);
+    
 }
 
-/* Style for the modal content */
-.facilities-modal-content {
-    background-color: #fff;
-    padding: 40px;
-    border-radius: 10px;
-    width: 400px;
-    max-width: 90%;
 
-}
+
+
+
+
 
 
 /* Responsive: Adjust grid for smaller screens */
@@ -1253,15 +1282,24 @@ margin-left:100px;
     justify-content: center;
 }
 
+
+
+
 /* Modal Content */
 .facilities-modal-content {
     background: white;
-    padding: 20px;
     border-radius: 10px;
-    width: 300px;
+    width: 500px;
+    padding:50px;
     text-align: center;
     position: relative;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    font-size:20px;
+}
+
+.facilities-modal-content h2{
+    font-weight:bold;
+    margin-bottom:30px;
 }
 
 /* Close Button */
@@ -1271,6 +1309,7 @@ margin-left:100px;
     right: 15px;
     font-size: 20px;
     cursor: pointer;
+    
 }
 
 /* Form Styling */
@@ -1295,6 +1334,7 @@ margin-left:100px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-top:50px;
 }
 
 .facilities-modal-content button:hover {
@@ -1360,7 +1400,21 @@ margin-left:100px;
     display: inline-block;
 }
 
+.facilities-label{
+    font-weight: bold;
+    font-size: 21px;
+    display: block;
+    margin-bottom:10px;
+}
 
+.facilities-value {
+    background-color: rgb(241, 241, 241);
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 20px;
+    color: #222;
+}
 .aboutusmain-container{
     display: flex;
     align-items: center;
@@ -1369,13 +1423,14 @@ margin-left:100px;
     width: 100%;
     max-width: 1400px;
     margin: auto;
+
 }
 
 .aboutusmain-content{
     flex: 1;
 }
 
-.aboutsmain-container h1{
+.aboutusmain-container h1{
     font-size:70px;
     letter-spacing:1.5px;
     color:#003366;
@@ -1390,6 +1445,10 @@ margin-left:100px;
 
 }
 
+.aboutustext h2{
+    
+}
+
 .aboutusintro{
     display: flex;
     justify-content: center;
@@ -1398,6 +1457,7 @@ margin-left:100px;
     text-align: center;
 
 }
+
 
 .drneil {
     display: flex;
@@ -1435,15 +1495,9 @@ margin-left:100px;
     border-radius: 50%; /* Makes it a perfect circle */
     display: block;
     margin: 0 auto;
+    margin-bottom:30px;
 }
 
-.director h4{
-    margin-bottom: -10px;
-}
-
-.director p{
-    margin-bottom:50px;
-}
 .staff-container{
     display: flex;
     justify-content: center; /* Centers the row */
@@ -1463,10 +1517,11 @@ margin-left:100px;
     border-radius: 50%; /* Makes it a perfect circle */
     display: block;
     margin: 0 auto;
+    margin-bottom:30px;
 }
 
 .staff h4{
-    margin-bottom: -10px;
+    margin-bottom: 20px;
 }
 
 .staff p{
@@ -1842,32 +1897,35 @@ margin-left:100px;
 
 
 #leftsidebar .profile {
-    margin-top:30px;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 1.5rem;
+    text-decoration: none;
+    color:black;
 }
 
 #leftsidebar .avatar {
+    margin-top:30px;
     width: 96px;
     height: 96px;
-    background-color: #0B1F3A;
     border-radius: 9999px;
-    margin-bottom: 0.5rem;
 }
 
 #leftsidebar .role {
-    margin-top:10px;
+
     font-weight: bold;
     font-size: 0.875rem;
     text-decoration: none;
     color:#000;
+
 }
+
 
 #leftsidebar .name {
     font-size: .9rem;
-    color: #6b7280;
+    color: #0B1F3A;
+    margin-top:-20px;
 }
 
 #leftsidebar .nav-links {
@@ -1892,7 +1950,7 @@ margin-left:100px;
 
 #leftsidebar .nav-links a:hover {
     background-color: #f3f4f6;
-    width:50%;
+    width:70%;
 }
 
 
@@ -1904,7 +1962,7 @@ margin-left:100px;
 
 .page-wrapper {
     margin-left: 300px; /* sidebar width */
-    margin-top: 100px;   /* navbar height */
+    margin-top:150px;
     padding: 20px;
 }
 
@@ -2108,10 +2166,6 @@ margin-left:100px;
     overflow-x: auto;
   }
 
-  .newsletter-page {
-    padding: 40px 60px;
-    font-family: Arial, sans-serif;
-  }
   
   .newsletter-page h1 {
     color: #0b1f3a;
@@ -2458,9 +2512,9 @@ margin-left:100px;
       
       .profile-edit {
         position: absolute;
-        top: -10px;
-        right: 20px;
-        font-size: 20px;
+        top:10px;
+        right: 24px;
+        font-size: 17px;
         cursor: pointer;
       }
       
@@ -2691,4 +2745,112 @@ margin-left:100px;
         border-radius: 10px;
         margin-bottom: 10px;
       }
-      
+
+.inventorywrapper{
+        display: flex;
+        justify-content: center;
+        align-items: start;
+        min-height: 100vh;
+        margin-top:120px;
+        margin-left:200px;
+
+}
+
+
+.locp-container {
+    padding: 40px;
+    margin-top:150px;
+}
+
+.locp-title {
+    text-align: center;
+    font-size: 32px;
+    color: #021F31;
+    margin-bottom: 30px;
+}
+
+.locp-content {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.locp-cards {
+    flex: 1 1 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.locp-card {
+    background-color: #001F2E;
+    color: white;
+    padding: 15px;
+    display: flex;
+    gap: 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.locp-card:hover {
+    background-color: #063247;
+}
+
+.locp-map {
+    flex: 1 1 55%;
+    min-height: 400px;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.locp-map img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.locp-card-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.locp-card-info h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.locp-card-info p {
+    margin: 4px 0;
+    font-size: 14px;
+}
+
+.locp-button {
+    margin-top: 8px;
+    padding: 6px 12px;
+    background-color: #fff;
+    color: #001F2E;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.locp-map {
+    flex: 1 1 55%;
+    min-height: 400px;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.locp-map:hover {
+    transform: scale(1.01);
+}

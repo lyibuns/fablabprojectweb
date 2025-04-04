@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  @include('NavBars.headpro')
+  @include('NavBars.head')
   @yield('content')
 </head>
 <body>
 
 @include('NavBars.navbar')
 
+@include('NavBars.sidebar')
 @include('NavBars.leftsidebar')
 
 <div class="page-wrapper">
