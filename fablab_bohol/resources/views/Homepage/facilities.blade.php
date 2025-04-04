@@ -81,28 +81,28 @@
 
         </section>
 
-                <!-- Popup Modal -->
-        <!-- Facilities Booking Modal -->
-        <div id="facilitiesModal" class="facilities-modal">
-            <div class="facilities-modal-content">
-                <span class="close-facilities-modal">&times;</span>
-                <h2>Book a Facility</h2>
-                <p>Fill out the form to reserve a facility.</p>
-                <form>
-                    
-                    <label for="facilitiesDate">Select Date:</label>
-                    <input type="date" id="facilitiesDate" required>
+        <!-- Popup Modal -->
+<!-- Facilities Booking Modal -->
+<div id="facilitiesModal" class="facilities-modal">
+    <div class="facilities-modal-content">
+        <span class="close-facilities-modal">&times;</span>
+        <h2>Book a Facility</h2>
+        <p>Fill out the form to reserve a facility.</p>
+        <form>
+            
+            <label for="facilitiesDate" class="facdate">Select Date:</label>
+            <input type="date" id="facilitiesDate" required>
 
                     <label for="facilitiesTime">Select Time Slot(s):</label>
                     <div id="facilitiesTime" class="time-slot-container">
                         <!-- Time slots will be generated here by JavaScript -->
                     </div>
 
-                    <label for="facilitiesSelect">Select Facility:</label>
-                    <select id="facilitiesSelect">
-                        <!-- Facilities will be added dynamically -->
-                    </select>
-                    
+            <label for="facilitiesSelect" class="facilities-label">Machine:</label>
+            <label id="facilitiesSelect" class="facilities-value">
+                <!-- Facilities will be added dynamically -->
+</label>
+            
 
                     <button type="submit">Confirm Booking</button>
                 </form>
