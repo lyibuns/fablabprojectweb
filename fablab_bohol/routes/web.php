@@ -29,6 +29,7 @@ use App\Http\Controllers\Profile\InventoryController;
 
 
 
+
 use Illuminate\Http\Request;
 use Kreait\Firebase\Auth as FirebaseAuth;
 use Illuminate\Support\Facades\Auth;

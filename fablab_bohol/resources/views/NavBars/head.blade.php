@@ -32,5 +32,5 @@
     <script defer src="{{ asset('js/hero-slideshow.js') }}"></script>
     <script defer src="{{ asset('js/sidepanel.js') }}"></script>
     <script defer src="{{ asset('js/login/login-Logout.js') }}"></script>
-    <script defer src="{{ asset('js/profile/booking-popup.js') }}"></script>
+    <script defer src="{{ asset('js/booking-popup.js') }}"></script>
 </head>
