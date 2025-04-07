@@ -335,6 +335,7 @@ main{
     margin-bottom:20px;
     padding-top:50px;
     color: white;
+    font-weight: bold;
 }
 
 .welcome p{
@@ -378,6 +379,7 @@ main{
     color:#064e7b;
     margin-bottom:50px;
     font-size:30px;
+    font-weight:bold;
 }
 
 .left-section button{
@@ -404,39 +406,31 @@ main{
 /* Right section for previous months */
 .right-section {
 margin-left:100px;
+margin-top:100px;
 }
 
-.right-section .hnewsletter-card {
-    width: 100%;
-    max-width: 500px;
-  }
-  
-.newsletter-card1 {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 10px;
-    margin-bottom: 30px;
-    margin-top:150px;
-    width:100%
 
-}
 
 .hnewsletter-card {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 20px;
     padding: 10px;
     margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
+
 .thumbnail {
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     background-color: #1E3A56;
-    aspect-ratio:1/1;
-    margin-right:30px;
+    flex-shrink: 0;
+    border-radius: 4px;
 }
+
 
 .text-content {
     flex:2;
@@ -487,6 +481,7 @@ margin-left:100px;
     margin-bottom:50px;
     font-size:30px;
     margin-top:100px;
+    font-weight: bold;
 }
 
 .events-container {
@@ -558,6 +553,7 @@ margin-left:100px;
     margin-top: 100px;
     font-size: 30px;
     margin-bottom: -50px;
+    font-weight: bold;
 }
 
 
@@ -1419,30 +1415,44 @@ margin-left:100px;
     font-size: 20px;
     color: #222;
 }
-.aboutusmain-container{
+
+
+
+.aboutusmain-container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center; /* center the content horizontally */
     padding: 20px;
     width: 100%;
-    max-width: 1400px;
-    margin: auto;
-
 }
 
-.aboutusmain-content{
+.aboutusmain-content {
     flex: 1;
+    max-width: 100%;
+    height: 500px; /* or any height you want */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../images/abtbanner.jpg'); /* fixed path */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-.aboutusmain-container h1{
-    font-size:70px;
-    letter-spacing:1.5px;
-    color:#003366;
-    font-weight: bolder;
+.aboutuswrapper{
+    margin-left:50px;
+    margin-right:50px;
 }
+.aboutusmain-container h1 {
+    font-size: 70px;
+    letter-spacing: 1.5px;
+    color: #fff;
+    font-weight: bolder;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.7); /* optional for readability */
+}
+
 
 .aboutusmain-container h2{
-    margin-top:100px;
     font-size:40px;
     font-weight:lighter;
     letter-spacing: 1px;
@@ -1450,38 +1460,73 @@ margin-left:100px;
 }
 
 .aboutustext h2{
+    margin-top:50px;
+    font-size:40px;
+    color:#001F2E;
+}
+
+.aboutustext p{
+    font-size:20px;
+    color:#001F2E;
+}
+
+.aboutusfab-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 40px 40px;
+  }
+  
+  .aboutusfab-img {
+    flex: 1 1 400px;
+    max-width: 600px;
+    padding: 5px;
+    background-color: #000000;
+    display: flex;
+    justify-content: center;
     
-}
+  }
+  
+  .aboutusfab-img img {
+    width: 100%;
+    height: auto;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    filter:grayscale(100);
+    
+  }
+  
+  .aboutusfab-text {
+    flex: 1 1 400px;
+    max-width: 1000px;
+    background-color: #f5f5f5;
+    padding: 160.5px;
+    font-size: 18px;
+    line-height: 2;
+    color: #333;
+  }
+  
 
-.aboutusintro{
+
+.aboutusstaff{
+    margin-top:100px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column; /* Stack items vertically */
     text-align: center;
-
 }
 
-
-.drneil {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column; /* Stack items vertically */
-    text-align: center;
+.aboutusstaff h2{
+    font-size:30px;
 }
 
-.drneil img{
-    width: 200px; /* Ensure width and height are equal */
-    height: 200px;
-    object-fit: cover; /* Ensures the image fills the circle without distortion */
-   
-    display: block;
-    margin: 0 auto;
- 
-
+.aboutusstaff p{
+    font-size:20px;
+    line-height: 2;
+    margin-bottom:50px;
 }
-
 
 
 .director {
@@ -1500,6 +1545,10 @@ margin-left:100px;
     display: block;
     margin: 0 auto;
     margin-bottom:30px;
+}
+
+.director p{
+    margin-bottom:50px;
 }
 
 .staff-container{
@@ -1525,7 +1574,7 @@ margin-left:100px;
 }
 
 .staff h4{
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .staff p{
@@ -2759,34 +2808,34 @@ margin-left:100px;
         margin-left:200px;
 
 }
-
-
 .locp-container {
     padding: 40px;
-    margin-top:150px;
-}
+    margin-top: 100px;
+  }
 
-.locp-title {
+  
+  .locp-title {
     text-align: center;
-    font-size: 32px;
+    font-size: 35px;
     color: #021F31;
-    margin-bottom: 30px;
-}
-
-.locp-content {
+    margin-bottom: 60px;
+    margin-top:50px;
+  }
+  
+  .locp-content {
     display: flex;
-    gap: 30px;
+    gap: 40px;
     flex-wrap: wrap;
-}
-
-.locp-cards {
+  }
+  
+  .locp-cards {
     flex: 1 1 40%;
     display: flex;
     flex-direction: column;
     gap: 20px;
-}
-
-.locp-card {
+  }
+  
+  .locp-card {
     background-color: #001F2E;
     color: white;
     padding: 15px;
@@ -2795,66 +2844,50 @@ margin-left:100px;
     border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.3s;
-}
-
-.locp-card:hover {
+  }
+  
+  .locp-card:hover {
     background-color: #063247;
-}
-
-.locp-map {
+  }
+  
+  .locp-card.active {
+    background-color: #064f6e;
+    border: 2px solid #00bcd4;
+  }
+  
+  .locp-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+  
+  .locp-card-info h4 {
+    font-size: 16px;
+    margin: 0;
+  }
+  
+  .locp-maps {
     flex: 1 1 55%;
+    position: relative;
     min-height: 400px;
-    border-radius: 6px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.locp-map img {
+  }
+  
+  .locp-map {
+    display: none;
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .locp-map img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+  
+  .locp-map.active {
     display: block;
-}
-
-.locp-card-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.locp-card-info h4 {
-    margin: 0;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.locp-card-info p {
-    margin: 4px 0;
-    font-size: 14px;
-}
-
-.locp-button {
-    margin-top: 8px;
-    padding: 6px 12px;
-    background-color: #fff;
-    color: #001F2E;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-    font-weight: bold;
-    font-size: 14px;
-}
-
-.locp-map {
-    flex: 1 1 55%;
-    min-height: 400px;
-    border-radius: 6px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.locp-map:hover {
-    transform: scale(1.01);
-}
+  }
+  

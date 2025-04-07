@@ -98,7 +98,7 @@
         </a>
     </div>
     <div class="right-section">
-        <div class="hnewsletter-card1">
+        <div class="hnewsletter-card">
             <div class="thumbnail"></div>
             <div class="text-content">
                 <h2>December 2024</h2>
@@ -114,7 +114,7 @@
                 <button class="read-more" onclick="location.href='{{ route('news') }}'">Read more</button>
             </div>
         </div>
-        <div class="newsletter-card">
+        <div class="hnewsletter-card">
             <div class="thumbnail"></div>
             <div class="text-content">
                 <h2>October 2024</h2>
