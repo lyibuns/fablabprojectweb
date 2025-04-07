@@ -16,71 +16,55 @@
     <!-- Location Page Content -->
     <main>
 
-       <section class="locp-container">
-        <h2 class="locp-title">Location</h2>
-        <p>Laboratories near you.</p>
-        <div class="locp-content">
-    <!-- LEFT: Location Cards -->
+    <section class="locp-container">
+  <h2 class="locp-title">Fabulous Laboratories Near You</h2>
+  <div class="locp-content">
+    <!-- LEFT: Cards -->
     <div class="locp-cards">
-        <!-- CARD 1 -->
-        <div class="locp-card" data-map="../images/map1.png" data-link="https://maps.google.com?q=FABLAB+Bohol">
-            <img src="../images/fablab_building.jpg" alt="Main Office" class="locp-img">
-            <div class="locp-card-info">
-                <h4>MAIN OFFICE</h4>
-                <p>C.P.G. North Avenue, Tagbilaran City, Central Visayas</p>
-                <p>411 - 3147</p>
-            </div>
+      <div class="locp-card" data-map-id="map-main">
+        <img src="../images/fablab_building.jpg" class="locp-img" alt="Main Office" />
+        <div class="locp-card-info">
+          <h4>MAIN OFFICE</h4>
+          <p>C.P.G. North Avenue, Tagbilaran City</p>
         </div>
+      </div>
 
-        <!-- CARD 2 -->
-        <div class="locp-card" data-map="../images/map2.png" data-link="https://maps.google.com?q=FABLAB+Branch+2">
-            <img src="../images/fablab_building.jpg" alt="Branch 2" class="locp-img">
-            <div class="locp-card-info">
-                <h4>DigiFab Calape</h4>
-                <p>Calape, Bohol</p>
-                <p>411 - 3148</p>
-            </div>
+      <div class="locp-card" data-map-id="map-candijay">
+        <img src="../images/fablab_building.jpg" class="locp-img" alt="Candijay" />
+        <div class="locp-card-info">
+          <h4>DigiFab Candijay</h4>
+          <p>Candijay, Bohol</p>
         </div>
+      </div>
 
-        <!-- CARD 3 -->
-        <div class="locp-card" data-map="../images/map3.png" data-link="https://maps.google.com?q=FABLAB+Branch+3">
-            <img src="../images/fablab_building.jpg" alt="Branch 3" class="locp-img">
-            <div class="locp-card-info">
-                <h4>DigiFab Bilar</h4>
-                <p>Bilar, Bohol</p>
-                <p>411 - 3149</p>
-            </div>
+      <div class="locp-card" data-map-id="map-calape">
+        <img src="../images/fablab_building.jpg" class="locp-img" alt="Calape" />
+        <div class="locp-card-info">
+          <h4>DigiFab Calape</h4>
+          <p>Calape, Bohol</p>
         </div>
+      </div>
     </div>
-
-    <!-- RIGHT: Dynamic Map Preview -->
-    <div class="locp-map">
-        <a id="locp-map-link" href="https://maps.google.com?q=FABLAB+Bohol" target="_blank">
-            <img id="locp-map-img" src="../images/map1.png" alt="Map" />
-        </a>
+ 
+    <!-- RIGHT: Maps -->
+    <div class="locp-maps">
+      <a id="map-main" class="locp-map active" href="https://maps.app.goo.gl/9kMGcdyYgx2MHbSy8" target="_blank">
+        <img src="../images/mapmain.png" alt="Main Map" />
+      </a>
+      <a id="map-candijay" class="locp-map" href="https://maps.app.goo.gl/ZxT6oHaZwUy9uf45A" target="_blank">
+        <img src="../images/mapcandijay.png" alt="Candijay Map" />
+      </a>
+      <a id="map-calape" class="locp-map" href="https://maps.app.goo.gl/bL72JqcuRNWW8Vxn9" target="_blank">
+        <img src="../images/mapcalape.png" alt="Calape Map" />
+      </a>
     </div>
-    <div class="locp-map">
-        <a id="locp-map-link" href="https://maps.google.com?q=FABLAB+Bohol" target="_blank">
-            <img id="locp-map-img" src="../images/map1.png" alt="Map" />
-        </a>
-    </div>
-    <div class="locp-map">
-        <a id="locp-map-link" href="https://maps.google.com?q=FABLAB+Bohol" target="_blank">
-            <img id="locp-map-img" src="../images/map1.png" alt="Map" />
-        </a>
-    </div>
-</div>
-
-
-        </div>
-    </section>
-
-    <script src="location.js"></script>
+  </div>
+</section>
     </main>
 
     @include('NavBars.botbar')
 
-        
+    <script src="location.js"></script>  
   <script src="{{ asset('js/sidepanel.js') }}"></script>
 </body>
 </html>
