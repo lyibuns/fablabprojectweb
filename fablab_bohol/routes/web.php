@@ -85,3 +85,6 @@ Route::get('/adprofile', [AdProfileController::class, 'index'])->name('adprofile
 Route::get('/machines', [MachinesController::class, 'index'])->name('machines');
 Route::get('/reports', [ReportsController::class, 'index'])->name('reports');
 Route::get('/inventory', [InventoryController::class, 'index'])->name('inventory');
+Route::get('/view/{category}', function ($category) {
+    return view('inventory.view', ['category' => $category]);
+});

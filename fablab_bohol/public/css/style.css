@@ -2762,6 +2762,8 @@ margin-left:100px;
     margin-top:150px;
 }
 
+
+
 .locp-title {
     text-align: center;
     font-size: 32px;
@@ -2854,3 +2856,51 @@ margin-left:100px;
 .locp-map:hover {
     transform: scale(1.01);
 }
+
+
+.intfac-wrapper{
+
+    margin-left:300px;
+    margin-top:-100px;
+}
+
+.intfac-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 machines per row */
+    gap: 30px;
+    justify-content: center;
+    align-items: stretch;
+    padding: 20px;
+}
+
+.intfac {
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    height: 300px;
+    width:250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.intfac img {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    border-radius: 5px;
+}
+
+.intfac h3 {
+    font-size: 15px;
+    color: #064e7b;
+    margin: 10px 0;
+    
+}
+
