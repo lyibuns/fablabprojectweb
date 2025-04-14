@@ -26,6 +26,7 @@ use App\Http\Controllers\Profile\AdProfileController;
 use App\Http\Controllers\Profile\MachinesController;
 use App\Http\Controllers\Profile\ReportsController;
 use App\Http\Controllers\Profile\InventoryController;
+use App\Http\Controllers\Profile\MachineController;
 
 
 
@@ -85,3 +86,8 @@ Route::get('/adprofile', [AdProfileController::class, 'index'])->name('adprofile
 Route::get('/machines', [MachinesController::class, 'index'])->name('machines');
 Route::get('/reports', [ReportsController::class, 'index'])->name('reports');
 Route::get('/inventory', [InventoryController::class, 'index'])->name('inventory');
+Route::get('/view/{category}', [InventoryController::class, 'view']);
+// Route to display the machine details page
+// Route::get('/machine/{id}', [MachineController::class, 'showMachineDetail'])->name('machine.detail');
+//Route::get('/machine-detail', [MachineController::class, 'showDetail'])->name('machine-detail');
+Route::get('/machine-detail', [MachineController::class, 'showMachineDetail']);

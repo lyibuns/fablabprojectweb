@@ -4,13 +4,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const facilitiesBookButtons = document.querySelectorAll(".book-facility");
     const facilitiesDropdown = document.getElementById("facilitiesSelect");
     const timeSlotContainer = document.getElementById("facilitiesTime");
-    const bookingForm = facilitiesModal.querySelector("form");
+    const bookingForm = facilitiesModal?.querySelector("form");
     const dateInput = document.getElementById("facilitiesDate");
     const successModal = document.getElementById("successModal");
     const closeSuccessBtn = document.getElementById("closeSuccess");
 
     
     let isFullyBooked = false;
+    let currentFacility = null;
 
     const errorContainer = document.createElement("div");
     errorContainer.className = "alert alert-danger mt-2 d-none";
@@ -25,12 +26,12 @@ document.addEventListener("DOMContentLoaded", function () {
         errorContainer.classList.add("d-none");
         errorContainer.textContent = "";
     }
-
-    const formatTime = (h, m) => {
+  
+    function formatTime(h, m) {
         const hh = h % 12 || 12;
         const suffix = h >= 12 ? "PM" : "AM";
         return `${hh}:${m.toString().padStart(2, "0")} ${suffix}`;
-    };
+    }
 
     async function getBookedSlots(facility, date) {
         const snapshot = await db.collection("bookings")
@@ -90,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const checkedCount = bookingForm.querySelectorAll('input[name="timeSlots[]"]:checked').length;
 
                 if (!checkbox.checked && checkedCount >= 4) {
-                    showError("Max 2 hours (4 slots) per day. Book extra time on another date.");
+                    showError("Oops! You've reached the 2-hour (4-slot) limit. Choose another day for more time.");
                     return;
                 }
 
@@ -102,6 +103,11 @@ document.addEventListener("DOMContentLoaded", function () {
             start += 30;
         }
 
+        isFullyBooked = timeSlotContainer.children.length === 0;
+
+        if (isFullyBooked) {
+            timeSlotContainer.innerHTML = `All time slots for this facility on this date are fully booked.`;
+
         if (timeSlotContainer.children.length === 0) {
             isFullyBooked = true;
             timeSlotContainer.innerHTML = `
@@ -111,33 +117,72 @@ document.addEventListener("DOMContentLoaded", function () {
             `;
         } else {
             isFullyBooked = false;
+
         }
     }
 
+    // Check if user is authenticated
+    const checkUserAuth = () => {
+        const user = firebase.auth().currentUser;
+        if (!user) {
+            showError("Please log in first to book a facility.");
+            return false;
+        }
+        return true;
+    };
+
+    // Get user first and last name from Firestore users collection
+    const getUserName = async (uid) => {
+        try {
+            const userDoc = await db.collection("users").doc(uid).get();
+            if (userDoc.exists) {
+                const data = userDoc.data();
+                return {
+                    firstName: data.firstName || "Unknown",
+                    lastName: data.lastName || "User"
+                };
+            }
+        } catch (err) {
+            console.error("Error fetching user name:", err);
+        }
+        return { firstName: "Unknown", lastName: "User" };
+    };
+
     facilitiesBookButtons.forEach(button => {
         button.addEventListener("click", () => {
-            const selectedFacility = button.getAttribute("data-facility");
+            if (!checkUserAuth()) return;
 
-            facilitiesDropdown.innerHTML = `<option selected value="${selectedFacility}">${selectedFacility}</option>`;
+            currentFacility = button.getAttribute("data-facility");
+            facilitiesDropdown.innerHTML = `<option selected value="${currentFacility}">${currentFacility}</option>`;
+
             facilitiesModal.style.display = "flex";
             timeSlotContainer.innerHTML = "<p class='text-muted'>Please select a date to see availability.</p>";
 
-            dateInput.onchange = async () => {
+            dateInput.addEventListener("change", async () => {
                 const selectedDate = dateInput.value;
-                const booked = await getBookedSlots(selectedFacility, selectedDate);
+                const booked = await getBookedSlots(currentFacility, selectedDate);
                 generateTimeSlots(booked);
                 clearErrors();
-            };
+
+            });
+
+  
         });
     });
 
-    closeFacilitiesModal.addEventListener("click", () => {
+    closeFacilitiesModal?.addEventListener("click", () => {
         facilitiesModal.style.display = "none";
     });
 
+    closeSuccessBtn?.addEventListener("click", () => {
+        successModal.style.display = "none";
+        location.reload();
+    });
+
     window.addEventListener("click", (event) => {
-        if (event.target === facilitiesModal) {
-            facilitiesModal.style.display = "none";
+        if (event.target === facilitiesModal || event.target === successModal) {
+            event.target.style.display = "none";
+            location.reload();
         }
         if (event.target === successModal) {
             successModal.style.display = "none";
@@ -150,46 +195,57 @@ document.addEventListener("DOMContentLoaded", function () {
         location.reload();
     });
 
-    bookingForm.addEventListener("submit", async function (e) {
-        e.preventDefault();
-        clearErrors();
+    // Booking form submission
+    if (!bookingForm.hasAttribute("data-listener-attached")) {
+        bookingForm.addEventListener("submit", async function (e) {
+            e.preventDefault();
+            clearErrors();
 
-        const date = dateInput.value;
-        const facility = facilitiesDropdown.value;
+            const date = dateInput.value;
+            const facility = currentFacility;
+            const user = firebase.auth().currentUser;
 
-        if (isFullyBooked) {
-            showError("This date is fully booked. Please choose another.");
-            return;
-        }
+            if (!checkUserAuth()) return;
 
-        const timeSlots = Array.from(bookingForm.querySelectorAll('input[name="timeSlots[]"]:checked'))
-                               .map(el => el.value);
+            const { firstName, lastName } = await getUserName(user.uid);
 
-        if (!date || !facility || timeSlots.length === 0) {
-            showError("Please complete all fields.");
-            return;
-        }
+            const timeSlots = Array.from(bookingForm.querySelectorAll('input[name="timeSlots[]"]:checked'))
+                .map(el => el.value);
 
-        if (timeSlots.length > 4) {
-            showError("Max 2 hours (4 slots) per day. Book extra time on another date.");
-            return;
-        }
+            if (timeSlots.length > 4) {
+                showError("Oops! You've reached the 2-hour (4-slot) limit. Choose another day for more time.");
+                return;
+            }
 
-        const alreadyBooked = await getBookedSlots(facility, date);
-        const conflict = timeSlots.find(slot => alreadyBooked.includes(slot));
-        if (conflict) {
-            showError(`Time slot "${conflict}" is already booked. Please choose another.`);
-            return;
-        }
 
-        await db.collection("bookings").add({
-            facility,
-            date,
-            timeSlots
+            if (!date || !facility || timeSlots.length === 0) {
+                showError("Please complete all fields.");
+                return;
+            }
+
+            const alreadyBooked = await getBookedSlots(facility, date);
+            const conflict = timeSlots.find(slot => alreadyBooked.includes(slot));
+            if (conflict) {
+                showError(`Time slot "${conflict}" is already booked. Please choose another.`);
+                return;
+            }
+
+            await db.collection("bookings").add({
+                facility,
+                date,
+                timeSlots,
+                userEmail: user.email,
+                userUID: user.uid,
+                firstName: firstName,
+                lastName: lastName
+            });
+
+            bookingForm.reset();
+            facilitiesModal.style.display = "none";
+            successModal.style.display = "flex";
         });
 
-        bookingForm.reset();
-        facilitiesModal.style.display = "none";
-        successModal.style.display = "flex";
-    });
+        bookingForm.setAttribute("data-listener-attached", "true");
+    }
+
 });
