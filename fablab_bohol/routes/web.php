@@ -30,6 +30,7 @@ use App\Http\Controllers\Profile\MachineController;
 
 
 
+
 use Illuminate\Http\Request;
 use Kreait\Firebase\Auth as FirebaseAuth;
 use Illuminate\Support\Facades\Auth;

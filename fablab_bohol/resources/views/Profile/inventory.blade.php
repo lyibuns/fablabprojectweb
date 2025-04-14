@@ -63,8 +63,8 @@
           <button type="submit" class="btn btn-success">
             <i class="bi bi-save me-1"></i> Save Machine
           </button>
+
         </div>
-      </form>
     </div>
   </div>
 

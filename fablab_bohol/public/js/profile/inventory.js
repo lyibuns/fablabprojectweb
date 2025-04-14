@@ -1,3 +1,4 @@
+
 // Ensure viewMachine is globally available
 function viewMachine(machineId) {
   // Route to Laravel-based dynamic route, not static .html file
@@ -92,4 +93,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Load machine data on page load
   loadMachinesData();
+
 });
