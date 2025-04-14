@@ -11,4 +11,11 @@ class InventoryController extends Controller
     {
         return view('Profile.inventory'); 
     }
+
+
+    public function view($category)
+    {
+        // You can pass the category to the view
+        return view('Profile.inventory-view', ['category' => $category]);
+    }
 }

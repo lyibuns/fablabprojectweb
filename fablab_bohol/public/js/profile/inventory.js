@@ -1,83 +1,95 @@
-// Set up button listeners for each "View Inventory" button
-window.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('view3dPrinter')?.addEventListener('click', () => {
-    viewInventoryForm("3D Printer");
-  });
-  document.getElementById('viewLaserCutter')?.addEventListener('click', () => {
-    viewInventoryForm("Laser Cutter");
-  });
-  document.getElementById('viewCncMilling')?.addEventListener('click', () => {
-    viewInventoryForm("CNC Milling Machine");
-  });
-  document.getElementById('viewVinylCutter')?.addEventListener('click', () => {
-    viewInventoryForm("Vinyl Cutter");
-  });
-  document.getElementById('viewEmbroideryMachine')?.addEventListener('click', () => {
-    viewInventoryForm("Embroidery Machine");
-  });
-  document.getElementById('view3dScanner')?.addEventListener('click', () => {
-    viewInventoryForm("3D Scanner");
-  });
-  document.getElementById('viewVaquform')?.addEventListener('click', () => {
-    viewInventoryForm("Vaquform");
-  });
-  document.getElementById('viewPrintCut')?.addEventListener('click', () => {
-    viewInventoryForm("Print and Cut Machine");
-  });
-});
-
-// Function to redirect to inventory form page
-function viewInventoryForm(category) {
-  // Redirect to the inventory form page for the selected category
-  window.location.href = `/inventory/${category.toLowerCase().replace(/\s+/g, '-')}`;
+// Ensure viewMachine is globally available
+function viewMachine(machineId) {
+  // Route to Laravel-based dynamic route, not static .html file
+  window.location.href = `/machine-detail?machineId=${machineId}`;
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('machineForm');
+  const container = document.getElementById('machineContainer');
+  const db = firebase.firestore();
 
-// Function to handle adding new machines to Firestore
-document.getElementById('machineForm')?.addEventListener('submit', function (e) {
-  e.preventDefault();
-  
-  const machineName = this.machine_name.value;
-  const imagePath = this.image_path.value;
+  // Function to convert Google Drive shareable link to direct image URL
+  function convertGoogleDriveUrlToImageUrl(googleDriveUrl) {
+    const regexDirectLink = /^https:\/\/drive\.google\.com\/uc\?export=view&id=(.*)$/;
+    const matchDirectLink = googleDriveUrl.match(regexDirectLink);
 
-  // Add machine data to Firestore
-  db.collection('machines').add({
-    machine_name: machineName,
-    image_path: imagePath
-  }).then(() => {
-    alert('Machine added successfully!');
-    window.location.reload();
-  }).catch(error => {
-    console.error('Error adding machine:', error);
-  });
-});
+    if (matchDirectLink && matchDirectLink[1]) {
+      return googleDriveUrl;  // Return as is if it's already in direct view format
+    }
 
-// Load machines data from Firestore (if needed)
-function loadMachinesData() {
-  db.collection('machines').get()
-    .then((querySnapshot) => {
-      const machinesContainer = document.getElementById('inventoryContainer');
-      machinesContainer.innerHTML = ''; // Clear existing content
-      
-      querySnapshot.forEach((doc) => {
-        const machine = doc.data();
-        const machineDiv = document.createElement('div');
-        machineDiv.classList.add('machine-item');
-        
-        machineDiv.innerHTML = `
-          <img src="${machine.image_path}" alt="${machine.machine_name}" class="img-fluid">
-          <h4>${machine.machine_name}</h4>
-        `;
-        
-        machinesContainer.appendChild(machineDiv);
-      });
+    const regexShareableLink = /(?:drive\.google\.com\/.*?\/d\/)(.*?)(?:\/|$)/;
+    const matchShareableLink = googleDriveUrl.match(regexShareableLink);
+
+    if (matchShareableLink && matchShareableLink[1]) {
+      const fileId = matchShareableLink[1];
+      return `https://drive.google.com/uc?export=view&id=${fileId}`;  // Convert to direct image URL
+    } else {
+      return null;  // Return null if URL is invalid
+    }
+  }
+
+  // Handle form submission with image URL
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const name = form.machine_name.value.trim();
+    const imageUrl = form.machine_image_url.value.trim();
+
+    if (!name || !imageUrl) {
+      alert("⚠️ Please fill in both the machine name and image URL.");
+      return;
+    }
+
+    const convertedImageUrl = convertGoogleDriveUrlToImageUrl(imageUrl);
+    if (!convertedImageUrl) {
+      alert("⚠️ Invalid Google Drive image URL.");
+      return;
+    }
+
+    // Save machine info with image URL to Firestore
+    db.collection("machines").add({
+      machine_name: name,
+      image_path: convertedImageUrl,
+      created_at: firebase.firestore.FieldValue.serverTimestamp()
+    })
+    .then(() => {
+      form.reset();
+      const modal = bootstrap.Modal.getInstance(document.getElementById('addMachineModal'));
+      modal.hide();
+      loadMachinesData();  // Refresh the list
     })
     .catch((error) => {
-      console.error('Error loading machines:', error);
+      console.error("❌ Error adding machine:", error);
+      alert("Error saving machine. Please try again.");
     });
-}
+  });
 
-// Call loadMachinesData to populate the page on load
-if (document.getElementById('inventoryContainer')) {
+  // Load machine data from Firestore
+  function loadMachinesData() {
+    db.collection("machines").orderBy("created_at", "desc").get()
+      .then((querySnapshot) => {
+        container.innerHTML = "";  // Clear previous content
+        if (querySnapshot.empty) return;
+
+        querySnapshot.forEach((doc) => {
+          const data = doc.data();
+          const imageSrc = data.image_path;
+
+          const card = `
+            <div class="intfac text-center">
+              <img src="${imageSrc}" alt="${data.machine_name}" class="img-fluid" style="max-height: 200px; object-fit: cover;">
+              <h3>${data.machine_name}</h3>
+              <button class="btn btn-outline-primary mt-3" onclick="viewMachine('${doc.id}')">View Inventory</button>
+            </div>`;
+          container.insertAdjacentHTML("beforeend", card);
+        });
+      })
+      .catch((error) => {
+        console.error("❌ Error loading machines:", error);
+      });
+  }
+
+  // Load machine data on page load
   loadMachinesData();
-}
+});

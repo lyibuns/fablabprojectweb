@@ -123,6 +123,8 @@
 
     @include('NavBars.botbar')
 
+    
+
 <!-- Link to External JavaScript File -->
 <script src="js/booking-popup.js"></script>
 <script src="{{ asset('js/sidepanel.js') }}"></script>
