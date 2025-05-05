@@ -11,6 +11,22 @@
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+
+  <style>
+    .intfac-wrapper {
+        margin-left: calc(37.5vw - 60px); /* Scales from 300px at 800px width, with a fixed offset */
+        margin-top: calc(-12.5vw); /* Scales from -100px at 800px width */
+    }
+
+    .intfac-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive columns with a minimum width */
+        gap: 3.75vw; /* Scales from 30px at 800px width */
+        justify-content: center;
+        align-items: stretch;
+        padding: 2.5vw; /* Scales from 20px at 800px width */
+    }
+  </style>
 </head>
 
 <body>
