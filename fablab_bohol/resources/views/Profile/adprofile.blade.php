@@ -84,6 +84,5 @@
 </div>
 
  <script src="{{ asset('js/sidepanel.js') }}"></script>
-</body>
 
 </html>

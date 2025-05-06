@@ -125,6 +125,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 category,
                 contact,
                 email,
+                user_role: "Public User",
                 createdAt: firebase.firestore.FieldValue.serverTimestamp()
             });
 

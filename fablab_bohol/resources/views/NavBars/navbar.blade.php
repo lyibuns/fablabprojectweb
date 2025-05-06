@@ -17,4 +17,6 @@
     <!-- Log In / Burger logic will be toggled by Firebase JS -->
     <button id="login-btn" onclick="handleLoginRedirect()">Log In</button>
     <button id="burger-btn" onclick="openNav()" style="display: none;">☰</button>
+
+    
 </nav>

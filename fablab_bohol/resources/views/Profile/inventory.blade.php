@@ -66,6 +66,22 @@
             <label class="form-label">Machine Name</label>
             <input type="text" class="form-control" name="machine_name" required>
           </div>
+
+          <div class="mb-3">
+            <label class="form-label">Machine Type</label>
+            <select class="form-select" name="machine_type" required>
+              <option selected disabled value="">Select Machine Type</option>
+              <option value="3D Printer">3D Printer</option>
+              <option value="3D Scanner">3D Scanner</option>
+              <option value="Laser Cutter Machine">Laser Cutter Machine</option>
+              <option value="Vinyl Cutter">Vinyl Cutter</option>
+              <option value="CNC Milling Machine">CNC Milling Machine</option>
+              <option value="Digital Embroidery Machine">Digital Embroidery Machine</option>
+              <option value="Print & Cut Machine">Print & Cut Machine</option>
+              <option value="Vaquform">Vaquform</option>
+            </select>
+          </div>
+
           <div class="mb-3">
             <label class="form-label">Google Drive Image Link</label>
             <input type="url" class="form-control" name="machine_image_url" placeholder="https://drive.google.com/uc?export=view&id=..." required>
@@ -79,8 +95,8 @@
           <button type="submit" class="btn btn-success">
             <i class="bi bi-save me-1"></i> Save Machine
           </button>
-
         </div>
+      </form>
     </div>
   </div>
 

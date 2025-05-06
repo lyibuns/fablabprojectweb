@@ -15,6 +15,6 @@
         <a href="/addnews"><img src="../images/logonewsletter.png" alt="Newsletters" />Newsletters</a>
         <a href="/addevents"><img src="../images/logoevent.png" alt="Events" />Events</a>
         <a href="/inventory"><img src="../images/logoinventory.png" alt="Inventory" />Inventory</a>
-        <a href="/logout"><img src="../images/logologout.png" alt="Logout" />Logout</a>
+        <a href="/login"><img src="../images/logologout.png" alt="Logout" />Logout</a>
     </nav>
 </aside>

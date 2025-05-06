@@ -1,25 +1,22 @@
 // ✅ Prevent multiple sign-in requests
 let isSigningIn = false;
 
-// ✅ Firebase auth state change handler
 firebase.auth().onAuthStateChanged((user) => {
     const loginBtn = document.getElementById("login-btn");
     const burgerBtn = document.getElementById("burger-btn");
 
-    console.log("👤 Auth state changed:", user ? user.email : "No user");
-
     if (user) {
-        console.log("✅ User authenticated");
-
-        if (loginBtn) loginBtn.style.display = "none";
-        if (burgerBtn) burgerBtn.style.display = "inline-block";
+        // Logged in
+        loginBtn.classList.remove("show-btn");
+        burgerBtn.classList.add("show-btn");
     } else {
-        console.log("🚫 User not logged in");
-
-        if (loginBtn) loginBtn.style.display = "inline-block";
-        if (burgerBtn) burgerBtn.style.display = "none";
+        // Not logged in
+        burgerBtn.classList.remove("show-btn");
+        loginBtn.classList.add("show-btn");
     }
 });
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
     const loginForm = document.querySelector(".login-form");
